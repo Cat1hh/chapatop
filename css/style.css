@@ -1,0 +1,418 @@
+:root {
+    --azul: #003366;      /* Azul da logo */
+    --amarelo: #FFD700;   /* Amarelo Ouro */
+    --branco: #ffffff;
+    --cinza: #f4f4f4;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; overflow-x: hidden; }
+
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+
+/* HEADER */
+header { background: var(--azul); height: 90px; display: flex; align-items: center; position: fixed; width: 100%; top:0; z-index: 999; border-bottom: 4px solid var(--amarelo); }
+.nav-box { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.logo-img { height: 70px; }
+
+.btn-top { background: var(--amarelo); color: var(--azul); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 0.8rem; }
+
+/* HERO SECTION */
+.hero { 
+    height: 100vh; 
+    background: linear-gradient(rgba(0, 51, 102, 0.8), rgba(0, 51, 102, 0.8)), url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80'); 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    align-items: center; 
+    color: #fff; 
+    text-align: center; 
+    padding-top: 90px;
+}
+.hero h2 { font-family: 'Oswald', sans-serif; font-size: 3.5rem; margin-bottom: 20px; color: var(--amarelo); }
+.hero-btns { margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+
+.btn-main { background: var(--amarelo); color: var(--azul); padding: 18px 35px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; font-size: 1.1rem; }
+.btn-sub { border: 2px solid var(--amarelo); color: var(--amarelo); padding: 18px 35px; text-decoration: none; border-radius: 5px; transition: 0.3s; font-size: 1.1rem; }
+.btn-main:hover { transform: scale(1.05); background: #e6c200; }
+
+/* STEPS */
+.steps { padding: 100px 0; background: var(--cinza); text-align: center; }
+.steps h3 { font-family: 'Oswald', sans-serif; font-size: 2.5rem; margin-bottom: 50px; color: var(--azul); }
+.grid-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+.step-card { background: #fff; padding: 40px; border-radius: 15px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); position: relative; border-top: 5px solid var(--amarelo); }
+.number { background: var(--azul); color: var(--amarelo); width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.5rem; }
+.step-card h4 { margin-bottom: 15px; color: var(--azul); font-size: 1.3rem; }
+/* SEÇÃO DE CADASTRO / FORMULÁRIO */
+.contact { 
+    padding: 100px 0; 
+    text-align: center; 
+    background: var(--branco);
+}
+
+.contact h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.2rem;
+    color: var(--azul);
+    margin-bottom: 40px;
+    text-transform: uppercase;
+}
+
+#formEmail { 
+    max-width: 600px; 
+    margin: 0 auto; 
+    display: flex; 
+    flex-direction: column; 
+    gap: 15px; 
+    background: var(--cinza); /* Usa o cinza da sua paleta */
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+#formEmail input, #formEmail select { 
+    padding: 15px; 
+    border: 2px solid #ddd; 
+    border-radius: 8px; 
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* Efeito de destaque ao clicar no campo */
+#formEmail input:focus, #formEmail select:focus {
+    border-color: var(--azul);
+    box-shadow: 0 0 8px rgba(0, 51, 102, 0.2);
+}
+
+/* BOTÃO DE ENVIAR */
+#formEmail button { 
+    background: var(--azul); 
+    color: var(--amarelo); 
+    padding: 18px; 
+    border: none; 
+    border-radius: 8px; 
+    font-size: 1.1rem; 
+    font-weight: bold; 
+    cursor: pointer; 
+    transition: 0.3s;
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1px;
+}
+
+#formEmail button:hover { 
+    background: #002244; /* Azul um pouco mais escuro */
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* AJUSTE PARA CELULAR */
+@media (max-width: 768px) {
+    #formEmail {
+        padding: 20px;
+        margin: 0 10px;
+    }
+    
+    .contact h3 {
+        font-size: 1.8rem;
+    }
+}
+/* HEADER - Ajustado para dar mais espaço */
+header { 
+    background: var(--azul); 
+    height: 100px; /* Aumentado de 90px para 100px */
+    display: flex; 
+    align-items: center; 
+    position: fixed; 
+    width: 100%; 
+    top:0; 
+    z-index: 999; 
+    border-bottom: 4px solid var(--amarelo); 
+}
+
+/* LOGO - Agora com destaque real */
+.logo-img { 
+    height: 130px; /* Aumentamos para ela "vazar" um pouco o header ou preencher melhor */
+    width: auto;
+    margin-top: 10px; /* Ajuste fino de posição */
+    filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3)); /* Sombra para destacar o emblema */
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.05); /* Efeito leve ao passar o mouse */
+}
+
+/* AJUSTE RESPONSIVO PARA CELULAR (IMPORTANTE) */
+@media (max-width: 768px) {
+    header {
+        height: 80px;
+    }
+    .logo-img { 
+        height: 90px; /* Um pouco menor no celular para não cobrir o conteúdo */
+    }
+    .btn-top {
+        font-size: 0.7rem;
+        padding: 8px 12px;
+    }
+}
+:root {
+    --azul: #003366;
+    --azul-escuro: #002244;
+    --amarelo: #FFD700;
+    --amarelo-hover: #e6c200;
+    --branco: #ffffff;
+    --cinza-claro: #f8f9fa;
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { 
+    font-family: 'Roboto', sans-serif; 
+    color: #333; 
+    line-height: 1.6; 
+    overflow-x: hidden;
+    background-color: var(--branco);
+}
+
+.container { max-width: 1200px; margin: 0 auto; padding: 0 25px; }
+
+/* HEADER - Vidro e Elevação */
+header { 
+    background: rgba(0, 51, 102, 0.95); 
+    backdrop-filter: blur(10px); /* Efeito de vidro */
+    height: 100px; 
+    display: flex; 
+    align-items: center; 
+    position: fixed; 
+    width: 100%; 
+    top: 0; 
+    z-index: 999; 
+    border-bottom: 3px solid var(--amarelo);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.nav-box { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+
+.logo-img { 
+    height: 110px; 
+    transition: 0.3s;
+    filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
+}
+
+.btn-top { 
+    background: var(--amarelo); 
+    color: var(--azul); 
+    padding: 12px 25px; 
+    text-decoration: none; 
+    font-weight: 700; 
+    border-radius: 50px; /* Botão arredondado é mais moderno */
+    font-size: 0.85rem;
+    transition: 0.3s;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+}
+.btn-top:hover { transform: scale(1.05); background: var(--branco); }
+
+/* HERO SECTION - Overlay mais rico */
+.hero { 
+    height: 100vh; 
+    background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 34, 68, 0.7)), 
+                url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80'); 
+    background-size: cover; 
+    background-position: center; 
+    display: flex; 
+    align-items: center; 
+    color: #fff; 
+    text-align: center; 
+    padding-top: 100px;
+}
+.hero h2 { 
+    font-family: 'Oswald', sans-serif; 
+    font-size: clamp(2.5rem, 5vw, 4rem); 
+    margin-bottom: 20px; 
+    color: var(--amarelo);
+    text-shadow: 2px 4px 10px rgba(0,0,0,0.3);
+}
+.hero p { font-size: 1.2rem; max-width: 700px; margin: 0 auto; opacity: 0.9; }
+
+.btn-main, .btn-sub { 
+    padding: 18px 40px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    border-radius: 8px; 
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+    display: inline-block;
+}
+.btn-main { background: var(--amarelo); color: var(--azul); box-shadow: 0 6px 20px rgba(255, 215, 0, 0.2); }
+.btn-sub { border: 2px solid var(--amarelo); color: var(--amarelo); margin-left: 10px; }
+.btn-main:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(255, 215, 0, 0.4); }
+.btn-sub:hover { background: var(--amarelo); color: var(--azul); }
+
+/* STEPS - Cards com profundidade */
+.steps { padding: 100px 0; background: var(--cinza-claro); }
+.grid-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+.step-card { 
+    background: #fff; 
+    padding: 50px 40px; 
+    border-radius: 20px; 
+    box-shadow: var(--shadow); 
+    transition: 0.3s;
+    border-bottom: 4px solid transparent;
+}
+.step-card:hover { transform: translateY(-10px); border-bottom: 4px solid var(--amarelo); }
+.number { 
+    background: var(--azul); 
+    color: var(--amarelo); 
+    width: 60px; height: 60px; 
+    border-radius: 50%; 
+    display: flex; align-items: center; justify-content: center; 
+    margin: 0 auto 25px; 
+    font-size: 1.8rem; font-family: 'Oswald';
+}
+
+/* FORMULÁRIO PROFISSIONAL */
+#formEmail { 
+    background: #fff;
+    padding: 50px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+input, select {
+    background: #fdfdfd;
+    border: 1px solid #e0e0e0 !important;
+    height: 55px;
+}
+input:focus { border-color: var(--azul) !important; background: #fff; }
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .hero-btns { display: flex; flex-direction: column; gap: 15px; }
+    .btn-sub { margin-left: 0; }
+    .logo-img { height: 80px; }
+}
+/* Container da seção de segurança */
+.diferenciais-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 40px;
+    padding: 60px 0;
+}
+
+/* Estilização da Imagem Ampliada */
+.img-seguranca {
+    width: 100%;           /* Ocupa toda a largura da coluna */
+    max-width: 600px;      /* Define um tamanho grande mas controlado */
+    height: auto;          /* Mantém a proporção original */
+    border-radius: 15px;   /* Bordas arredondadas para um toque moderno */
+    box-shadow: 0 15px 35px rgba(0,0,0,0.2); /* Sombra para dar profundidade */
+    transition: transform 0.3s ease; /* Efeito suave ao passar o mouse */
+}
+
+.img-seguranca:hover {
+    transform: scale(1.02); /* Leve aumento ao interagir */
+}
+/* ============================================================
+   RESPONSIVIDADE GERAL (Ajustes para Mobile e Tablet)
+   ============================================================ */
+
+@media (max-width: 992px) {
+    .container { padding: 0 30px; }
+    
+    /* Ajuste da Seção de Segurança */
+    .diferenciais-container {
+        flex-direction: column; /* Empilha imagem e texto */
+        text-align: center;
+        gap: 30px;
+    }
+
+    /* Ajuste da Seção Call to Action (Quer ser um Chapa Top?) */
+    .call-to-action-chapa-top .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Impede que a imagem com transform vaze para fora da tela */
+    .call-to-action-chapa-top img {
+        max-width: 120% !important;
+        transform: translateY(100) !important; /* Remove o deslocamento no mobile */
+        margin-top: 1px;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes de Tipografia */
+    .hero h2 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    
+    /* Ajuste do Header e Logo */
+    header { height: 80px; }
+    .logo-img { height: 85px; }
+
+    /* Ajuste dos Botões do Hero */
+    .hero-btns {
+        flex-direction: column;
+        width: 100%;
+        padding: 0 20px;
+    }
+    .btn-main, .btn-sub {
+        width: 100%;
+        margin-left: 0 !important;
+        text-align: center;
+    }
+
+    /* Ajuste das Seções de Texto e Imagem */
+    #historia .container, 
+    #diferenciais .container {
+        flex-direction: column !important;
+        text-align: center;
+    }
+
+    /* Garantir que as imagens de fundo não fiquem "brancas" ou estranhas */
+    #compromisso, .call-to-action-chapa-top {
+        background-attachment: scroll !important; /* Melhora o desempenho no celular */
+        padding: 60px 0;
+    }
+
+    /* Formulário no Mobile */
+    #formEmail {
+        padding: 30px 20px;
+        border-radius: 15px;
+    }
+}
+
+/* Ajuste específico para telas muito pequenas (iPhone SE, etc) */
+@media (max-width: 400px) {
+    .hero h2 { font-size: 1.8rem; }
+    .btn-top { display: none; } /* Esconde o botão pequeno do topo para não poluir */
+}
+.btn-politica {
+    display: inline-block;
+    padding: 10px 20px;
+    border: 1px solid rgba(255, 215, 0, 0.3);
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.75rem;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: 0.3s;
+    text-align: center;
+    letter-spacing: 1px;
+}
+
+.btn-politica:hover {
+    background: var(--amarelo);
+    color: var(--azul);
+    border-color: var(--amarelo);
+}
+
+/* Ajuste de responsividade para os botões no mobile */
+@media (max-width: 768px) {
+    .btn-politica {
+        width: 100%;
+        font-size: 0.85rem;
+    }
+}
