@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapa Top - Carga e Descarga</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+    /* Trava o scroll enquanto as portas não abrem */
+    body { overflow-x: hidden; }
+    body.loading { overflow: hidden; }
+
+    #loader-wrapper {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 99999;
+        display: flex;
+        perspective: 2000px; /* Aumentado para um efeito 3D mais profundo */
+        background: transparent;
+        pointer-events: all; /* Bloqueia cliques no site enquanto fecha */
+        transition: visibility 1.5s;
+    }
+
+    .truck-door {
+        width: 50%;
+        height: 100%;
+        background: #d1d1d1; /* Cor de metal */
+        position: relative;
+        display: flex;
+        align-items: center;
+        /* cubic-bezier ajustado para parecer movimento de carga pesada */
+        transition: transform 1.8s cubic-bezier(0.7, 0, 0.3, 1), opacity 1.5s;
+        border: 2px solid #555;
+        box-shadow: inset 0 0 50px rgba(0,0,0,0.3);
+        z-index: 2;
+    }
+
+    /* Frisos do baú */
+    .truck-door::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 20%; width: 2px; height: 100%; background: rgba(0,0,0,0.1);
+        box-shadow: 40px 0 rgba(0,0,0,0.1), 80px 0 rgba(0,0,0,0.1), 120px 0 rgba(0,0,0,0.1);
+    }
+
+    .door-left {
+        transform-origin: left center;
+        justify-content: flex-end;
+        border-right: 3px solid #333;
+    }
+
+    .door-right {
+        transform-origin: right center;
+        justify-content: flex-start;
+    }
+
+    .truck-logo-loader {
+        width: 250px;
+        position: absolute;
+        z-index: 10;
+        filter: drop-shadow(5px 5px 15px rgba(0,0,0,0.3));
+        pointer-events: none;
+    }
+    
+    /* Corte preciso da logo ao meio */
+    .door-left .truck-logo-loader { right: -125px; clip-path: inset(0 50% 0 0); }
+    .door-right .truck-logo-loader { left: -125px; clip-path: inset(0 0 0 50%); }
+
+    .handle {
+        position: absolute;
+        width: 15px;
+        height: 100px;
+        background: #222;
+        border-radius: 3px;
+        top: 50%;
+        transform: translateY(-50%);
+        box-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+    }
+    .door-left .handle { right: 20px; }
+    .door-right .handle { left: 20px; }
+
+    /* --- ESTADO QUANDO CARREGADO --- */
+    .loaded .door-left { 
+        transform: rotateY(-110deg); /* Abre mais que 90 graus para realismo */
+        opacity: 0; 
+    }
+    .loaded .door-right { 
+        transform: rotateY(110deg); 
+        opacity: 0; 
+    }
+    .loaded #loader-wrapper { 
+        pointer-events: none; /* LIBERA O SITE PARA CLIQUES */
+        visibility: hidden; 
+    }
+</style>
+
+
+</head>
+<body>
+
+    <div id="loader-wrapper">
+    <div class="truck-door door-left">
+        <div class="handle"></div>
+        <img src="img/Design sem nome (17).png" class="truck-logo-loader" alt="Logo">
+    </div>
+    <div class="truck-door door-right">
+        <div class="handle"></div>
+        <img src="img/Design sem nome (17).png" class="truck-logo-loader" alt="Logo">
+    </div>
+</div>
+
+    <header>
+        <div class="container nav-box">
+            <img src="img/Design sem nome (17).png" alt="Chapa Top" class="logo-img">
+            <div style="display: flex; gap: 10px;">
+                <a href="#orcamento" class="btn-top" style="background: #FFD700; color: #003366;">SOLICITAR COTAÇÃO</a>
+                <a href="https://wa.me/11994033446" class="btn-top">FALAR COM CONSULTOR</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container" data-aos="fade-up">
+            <h2>SUA CARGA EM BOAS MÃOS</h2>
+            <p>Especializada em carga, descarga e diárias em empresas.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/11994033446?text=Olá!+Preciso+de+ajudantes+para+uma+carga." class="btn-main">CONTRATAR CHAPA</a>
+                <a href="#cadastro" class="btn-sub">QUERO TRABALHAR</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="orcamento" style="padding: 100px 0; background: #f9f9f9;">
+        <div class="container">
+            <div style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366;">FAÇA SUA COTAÇÃO</h3>
+                <p style="color: #666;">Escolha o tipo de serviço e receba sua proposta personalizada.</p>
+            </div>
+            <div style="max-width: 850px; margin: 0 auto; background: #fff; padding: 40px; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" data-aos="zoom-in">
+                <form action="https://formsubmit.co/gustavodesete@gmail.com" method="POST" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <input type="hidden" name="_subject" value="Nova Cotação de Serviço - Chapa Top">
+                    
+                    <div style="grid-column: span 2;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #003366;">Tipo de Serviço:</label>
+                        <select name="Tipo de Operação" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; background: #fdfdfd;">
+                            <option value="" disabled selected>Selecione uma opção...</option>
+                            <option value="Carga">Carga</option>
+                            <option value="Descarga">Descarga</option>
+                            <option value="Transbordo">Transbordo</option>
+                            <option value="Acompanhamento de Motoristas">Acompanhamento de Motoristas</option>
+                            <option value="Diária em Empresa/Transportadora/CD">Diária em Empresa / Transportadora / CD</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #003366;">Local (Cidade/UF):</label>
+                        <input type="text" name="Local da Carga/Descarga" placeholder="Ex: São Paulo - SP" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #003366;">Data e Horário:</label>
+                        <input type="text" name="Data e Hora" placeholder="Ex: 15/02 às 08:00" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #003366;">Nome ou Empresa:</label>
+                        <input type="text" name="Cliente" placeholder="Seu nome" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <div>
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #003366;">WhatsApp para Contato:</label>
+                        <input type="tel" name="Contato" placeholder="(11) 99999-9999" required style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px;">
+                    </div>
+
+                    <div style="grid-column: span 2;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: bold; color: #003366;">Observações Adicionais:</label>
+                        <textarea name="Detalhes" placeholder="Ex: Quantidade de ajudantes, tipo de mercadoria, etc." style="width: 100%; padding: 15px; border: 1px solid #ddd; border-radius: 8px; min-height: 80px;"></textarea>
+                    </div>
+
+                    <button type="submit" style="grid-column: span 2; background: #003366; color: #fff; padding: 18px; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s; font-size: 1.1rem;">
+                        SOLICITAR PROPOSTA AGORA
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="about" id="sobre" style="padding: 100px 0; background: #fff;">
+        <div class="container">
+            <div style="display: flex; align-items: flex-start; gap: 50px; flex-wrap: wrap;">
+                
+                <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
+                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">CONHEÇA A CHAPA TOP SERVIÇOS</h3>
+                    
+                    <p style="margin-bottom: 15px; font-size: 1.1rem;">A <strong>Chapa Top Serviços</strong> é especializada no fornecimento de mão de obra qualificada para carga, descarga e organização de mercadorias. Atendemos desde caminhoneiros e transportadoras até grandes centros de distribuição e indústrias.</p>
+                    
+                    <p style="margin-bottom: 25px;">Nosso objetivo é fortalecer sua logística, garantindo rapidez nas operações e redução de tempo parado, sempre com foco na segurança e eficiência.</p>
+
+                    <div style="margin-top: 30px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+                        <video controls style="width: 100%; display: block;">
+                            <source src="img/Chapa Top Institucional.mp4" type="video/mp4">
+                            Seu navegador não suporta vídeos.
+                        </video>
+                    </div>
+                </div>
+
+                <div style="flex: 1; min-width: 320px; background: #f4f4f4; padding: 35px; border-radius: 20px; border-top: 6px solid #FFD700;" data-aos="fade-left">
+                    <h4 style="font-family: 'Oswald', sans-serif; color: #003366; font-size: 1.5rem; margin-bottom: 20px;">NOSSAS ESPECIALIDADES</h4>
+                    
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="margin-bottom: 15px;"><strong>✓ Carga e Descarga:</strong> Containers, trens, carretas, carga seca/molhada e sacarias.</li>
+                        <li style="margin-bottom: 15px;"><strong>✓ Logística Interna:</strong> Organização de estoques, movimentação interna e otimização de espaço em CDs e galpões.</li>
+                        <li style="margin-bottom: 15px;"><strong>✓ Gestão de Layout:</strong> Montagem e reorganização de layouts logísticos.</li>
+                        <li style="margin-bottom: 15px;"><strong>✓ Inventários:</strong> Auxílio especializado em conferências e inventários de carga.</li>
+                        <li style="margin-bottom: 15px;"><strong>✓ Diárias e Períodos:</strong> Atendemos demandas pontuais, diárias ou contínuas sob supervisão direta do contratante.</li>
+                    </ul>
+
+                    <hr style="margin: 25px 0; border: 0; border-top: 1px solid #ddd;">
+                    
+                    <p style="font-size: 0.95rem; color: #555;"><em>"Nossos ajudantes são treinados em boas práticas de segurança e uso de EPIs, garantindo tranquilidade e alto padrão em cada serviço realizado."</em></p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="steps">
+        <div class="container">
+            <h3 data-aos="fade-down">COMO FUNCIONA?</h3>
+            <div class="grid-steps">
+                <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="number">1</div>
+                    <h4>SOLICITE</h4>
+                    <p>Fale conosco via WhatsApp e informe sua necessidade.</p>
+                </div>
+                <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="number">2</div>
+                    <h4>AGENDAMENTO</h4>
+                    <p>Nossa equipe organiza os melhores ajudantes para o horário.</p>
+                </div>
+                <div class="step-card" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="number">3</div>
+                    <h4>EXECUÇÃO</h4>
+                    <p>Serviço feito com agilidade, segurança e profissionalismo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="historia" style="padding: 100px 0; background: #fff;">
+        <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+            <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">NOSSA TRAJETÓRIA</h3>
+                <p style="margin-bottom: 15px; font-size: 1.1rem; color: #555;">A <strong>Chapa Top Serviços</strong> nasceu entre 2018 e 2019, ao identificarmos uma carência no mercado: a falta de profissionais comprometidos e preparados para a segurança nas operações de carga e descarga.</p>
+                <p style="font-size: 1.1rem; color: #555;">Desde o início, nosso propósito foi atender caminhoneiros, indústrias e centros de distribuição que buscam mão de obra confiável, treinada e organizada para os desafios do setor logístico.</p>
+            </div>
+            <div style="flex: 1; min-width: 320px;" data-aos="fade-left">
+                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                    <video controls style="width: 100%; display: block;">
+                        <source src="img/CHAPATOP - Depoimentos Reais (1).mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diretrizes" style="padding: 100px 0; background: #f4f4f4;">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+                <div style="background: #fff; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);" data-aos="zoom-in">
+                    <span style="font-size: 3rem;">🎯</span>
+                    <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin: 20px 0;">MISSÃO</h4>
+                    <p style="color: #666;">Oferecer soluções em mão de obra logística com qualidade, segurança e eficiência, contribuindo para o crescimento das operações de nossos clientes.</p>
+                </div>
+                <div style="background: #fff; padding: 40px; border-radius: 15px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);" data-aos="zoom-in" data-aos-delay="200">
+                    <span style="font-size: 3rem;">👁️</span>
+                    <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin: 20px 0;">VISÃO</h4>
+                    <p style="color: #666;">Ser reconhecida como referência em apoio logístico no Brasil, destacando-se pela inovação e compromisso com resultados.</p>
+                </div>
+                <div style="background: #003366; padding: 40px; border-radius: 15px; color: #fff; box-shadow: 0 10px 20px rgba(0,0,0,0.1);" data-aos="zoom-in" data-aos-delay="400">
+                    <span style="font-size: 3rem;">⭐</span>
+                    <h4 style="font-family: 'Oswald', sans-serif; color: #FFD700; margin: 20px 0;">VALORES</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.4; text-align: left;">
+                        • <strong>Compromisso:</strong> Prazos e seriedade.<br>
+                        • <strong>Segurança:</strong> Integridade em primeiro lugar.<br>
+                        • <strong>Qualidade:</strong> Melhoria contínua.<br>
+                        • <strong>Ética:</strong> Transparência total.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" style="padding: 100px 0; background: #fff;">
+        <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap-reverse;">
+             <div style="flex: 1; min-width: 320px;" data-aos="fade-right">
+                <img src="img/Design sem nome (5).png" alt="Segurança Chapa Top" style="max-width: 100%; height: auto;">
+            </div>
+            <div style="flex: 1.2; min-width: 350px;" data-aos="fade-left">
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.2rem; color: #003366; margin-bottom: 20px;">SEGURANÇA E CAPACITAÇÃO</h3>
+                <p style="margin-bottom: 15px; color: #555;">A Chapa Top acredita que a excelência começa pela valorização das pessoas. Por isso, investimos constantemente na capacitação técnica e no uso correto de <strong>Equipamentos de Proteção Individual (EPIs)</strong>.</p>
+                <p style="color: #555;">Isso garante que cada operação de carga ou descarga em caminhões, carretas e galpões seja realizada com o máximo de tranquilidade e eficiência para nossos parceiros.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="call-to-action-chapa-top" style="
+        background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/fundo-logistica.jpg'); 
+        background-size: cover; 
+        background-position: center; 
+        color: #fff; 
+        padding: 80px 0; 
+        overflow: hidden; 
+        position: relative;">
+        
+        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
+            
+            <div style="flex: 1; min-width: 300px; position: relative; z-index: 2;" data-aos="fade-right">
+                <h4 style="color: #FFD700; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px;">Oportunidade</h4>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 20px; line-height: 1.2;">QUER SER UM CHAPA TOP?</h3>
+                <p style="font-size: 1.1rem; line-height: 1.6; margin-bottom: 30px; opacity: 0.9;">VENHA FAZER PARTE DO TIME QUE ESTÁ TRANSFORMANDO A LOGÍSTICA NO BRASIL.</p>
+                
+                <a href="#cadastro" class="btn-whatsapp" style="background: #25D366; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; z-index: 10;">
+                    <i class="fab fa-whatsapp"></i> CADASTRE-SE AGORA
+                </a>
+            </div>
+
+            <div style="flex: 1; min-width: 300px; text-align: right; position: relative; z-index: 1;" data-aos="fade-left">
+                <img src="img/ULTIMO DIA PARA A CHAMDA PUBLICA.png" alt="Quer ser um Chapa Top?" style="max-width: 230%; height: auto; transform: translateY(90px);">
+            </div>
+
+            <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(255, 215, 0, 0.1); border-radius: 50%;"></div>
+            <div style="position: absolute; bottom: -30px; right: -30px; width: 100px; height: 100px; background: rgba(0, 51, 102, 0.2); border-radius: 50%;"></div>
+
+        </div>
+    </section>
+
+    <section id="compromisso" style="padding: 80px 0; background: #003366; color: #fff; text-align: center;">
+        <div class="container" data-aos="fade-up">
+            <span style="font-size: 2.5rem;">🤝</span>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 2rem; color: #FFD700; margin: 20px 0;">COMPROMISSO INSTITUCIONAL</h3>
+            <p style="max-width: 800px; margin: 0 auto 30px; font-style: italic; opacity: 0.9;">"Nossa missão é contribuir para que cada cliente tenha mais produtividade, menos riscos e melhores resultados, fortalecendo toda a cadeia logística."</p>
+            <a href="https://wa.me/11994033446" class="btn-main" style="background: #FFD700; color: #003366; padding: 15px 30px; text-decoration: none; font-weight: bold; border-radius: 5px;">FALE COM UM CONSULTOR AGORA</a>
+        </div>
+    </section>
+
+    <section id="cadastro" class="contact">
+        <div class="container" data-aos="flip-left">
+            <h3>Cadastro de Ajudante</h3>
+            <p style="margin-bottom: 25px;">Preencha os dados abaixo para enviar seu currículo por e-mail.</p>
+            <form action="https://formsubmit.co/gustavodesete@gmail.com" method="POST" id="formEmail">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" name="_subject" value="Novo Cadastro: Chapa Top">
+                <input type="hidden" name="_next" value="https://seusite.com.br/sucesso.html">
+
+                <input type="text" name="Nome do Candidato" placeholder="Nome Completo" required>
+                <input type="text" name="Cidade do Candidato" placeholder="Sua Cidade/UF" required>
+                
+                <select name="Função Pretendida">
+                    <option value="Chapa">Ajudante (Chapa)</option>
+                    <option value="Motorista">Motorista Particular</option>
+                    <option value="Montador">Montador de Móveis</option>
+                </select>
+
+                <button type="submit">Enviar Cadastro para Análise</button>
+            </form>
+        </div>
+    </section>
+
+    <footer style="background: #003366; color: #fff; padding: 60px 0 20px; border-top: 4px solid #FFD700;">
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-start; gap: 40px; margin-bottom: 40px;">
+                
+                <div style="flex: 1; min-width: 250px;">
+                    <img src="img/Design sem nome (17).png" alt="Chapa Top" style="height: 80px; margin-bottom: 20px;">
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Referência em apoio logístico, oferecendo soluções eficientes para operações que exigem agilidade e alto padrão de qualidade desde 2018.</p>
+                </div>
+
+                <div style="flex: 0.5; min-width: 150px;">
+                    <h4 style="color: #FFD700; font-family: 'Oswald', sans-serif; margin-bottom: 20px;">LINKS</h4>
+                    <ul style="list-style: none; font-size: 0.9rem; line-height: 2;">
+                        <li><a href="#sobre" style="color: #fff; text-decoration: none;">Sobre Nós</a></li>
+                        <li><a href="#diferenciais" style="color: #fff; text-decoration: none;">Segurança</a></li>
+                        <li><a href="#cadastro" style="color: #fff; text-decoration: none;">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+
+                <div style="flex: 1; min-width: 250px;">
+                    <h4 style="color: #FFD700; font-family: 'Oswald', sans-serif; margin-bottom: 20px;">LEGAL</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="img/1. Sobre a Empresa.pdf" class="btn-politica" style="color:#fff; text-decoration:none;">POLÍTICA DE PRIVACIDADE</a>
+                        <a href="termos-uso.html" class="btn-politica" style="color:#fff; text-decoration:none;">TERMOS DE USO</a>
+                    </div>
+                </div>
+            </div>
+
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px;">
+            
+            <div style="text-align: center; font-size: 0.8rem; opacity: 0.6;">
+                © 2026 Chapa Top Serviços - Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/11994033446?text=Olá!+Gostaria+de+solicitar+um+orçamento+para+serviço+de+chapa." 
+       style="position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 1px 1px 10px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none;" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+<script>
+    // Garante que o AOS inicie apenas após as portas abrirem
+    document.addEventListener('DOMContentLoaded', function() {
+        document.body.classList.add('loading');
+    });
+
+    window.addEventListener('load', function() {
+        setTimeout(function() {
+            document.body.classList.remove('loading');
+            document.body.classList.add('loaded');
+            
+            // Inicia as animações do site (AOS) logo após as portas abrirem
+            setTimeout(function(){
+                AOS.init({
+                    duration: 1000,
+                    once: true
+                });
+            }, 500);
+            
+        }, 1000); // Aguarda 1 segundo antes de começar a abrir
+    });
+</script>
+</body>
+</html>
