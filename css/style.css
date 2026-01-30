@@ -12,7 +12,7 @@ body { font-family: 'Roboto', sans-serif; color: #333; line-height: 1.6; overflo
 
 /* HEADER */
 header { background: var(--azul); height: 90px; display: flex; align-items: center; position: fixed; width: 100%; top:0; z-index: 999; border-bottom: 4px solid var(--amarelo); }
-.nav-box { display: flex; justify-content: space-between; align-items: center; width: 100%; }
+.nav-box { display: flex; justify-content: space-between; align-items: 100; width: 100%; }
 .logo-img { height: 70px; }
 
 .btn-top { background: var(--amarelo); color: var(--azul); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 0.8rem; }
@@ -33,7 +33,7 @@ header { background: var(--azul); height: 90px; display: flex; align-items: cent
 .hero-btns { margin-top: 30px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
 
 .btn-main { background: var(--amarelo); color: var(--azul); padding: 18px 35px; text-decoration: none; font-weight: bold; border-radius: 5px; transition: 0.3s; font-size: 1.1rem; }
-.btn-sub { border: 2px solid var(--amarelo); color: var(--amarelo); padding: 18px 35px; text-decoration: none; border-radius: 5px; transition: 0.3s; font-size: 1.1rem; }
+.btn-sub { border: 2px solid var(--amarelo); color: var(--amarelo); padding: 10px 35px; text-decoration: none; border-radius: 5px; transition: 0.3s; font-size: 1.1rem; }
 .btn-main:hover { transform: scale(1.05); background: #e6c200; }
 
 /* STEPS */
@@ -136,7 +136,7 @@ header {
 .logo-img { 
     height: 130px; /* Aumentamos para ela "vazar" um pouco o header ou preencher melhor */
     width: auto;
-    margin-top: 10px; /* Ajuste fino de posição */
+    margin-top: 1px; /* Ajuste fino de posição */
     filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.3)); /* Sombra para destacar o emblema */
     transition: transform 0.3s ease;
 }
@@ -198,7 +198,7 @@ header {
 .nav-box { display: flex; justify-content: space-between; align-items: center; width: 100%; }
 
 .logo-img { 
-    height: 110px; 
+    height: 100px; 
     transition: 0.3s;
     filter: drop-shadow(2px 4px 6px rgba(0,0,0,0.2));
 }
@@ -218,7 +218,7 @@ header {
 
 /* HERO SECTION - Overlay mais rico */
 .hero { 
-    height: 100vh; 
+    height: 80vh; 
     background: linear-gradient(135deg, rgba(0, 51, 102, 0.9), rgba(0, 34, 68, 0.7)), 
                 url('https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1350&q=80'); 
     background-size: cover; 
@@ -415,4 +415,85 @@ input:focus { border-color: var(--azul) !important; background: #fff; }
         width: 100%;
         font-size: 0.85rem;
     }
+}
+/* EFEITO DE ENTRADA SUAVE (Fade-in) */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* BOTÕES CHAMATIVOS (Efeito de Brilho) */
+.btn-main, .btn-top, #formEmail button {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-main::after, #formEmail button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+    transition: 0.5s;
+    z-index: -1;
+}
+
+.btn-main:hover::after, #formEmail button:hover::after {
+    left: 100%;
+}
+
+/* CARDS COM HOVER 3D LITE */
+.step-card {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0,0,0,0.05);
+}
+
+.step-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 51, 102, 0.15);
+    border-top-color: var(--azul); /* Muda a cor da borda no hover */
+}
+
+/* EFEITO GLASSMORPHISM NO HEADER */
+header {
+    background: rgba(0, 51, 102, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 2px solid rgba(255, 215, 0, 0.3) !important;
+}
+#formEmail {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(0, 51, 102, 0.1);
+    backdrop-filter: blur(5px);
+}
+
+#formEmail input, #formEmail select {
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    border-radius: 12px; /* Bordas mais arredondadas */
+}
+
+#formEmail input:focus {
+    transform: scale(1.01);
+    border-color: var(--amarelo) !important;
+}
+.call-to-action-chapa-top img {
+    filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
+    transition: all 0.5s ease;
+}
+
+/* Efeito de flutuar na imagem do entregador */
+@keyframes float {
+    0% { transform: translateY(90px); }
+    50% { transform: translateY(75px); }
+    100% { transform: translateY(90px); }
+}
+
+.call-to-action-chapa-top img {
+    animation: float 4s ease-in-out infinite;
 }
