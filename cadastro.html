@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro de Profissional - Chapa Top</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --azul: #003366; --amarelo: #FFD700; --cinza: #f4f4f4; }
         body { font-family: 'Roboto', sans-serif; background: var(--cinza); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
@@ -35,13 +36,14 @@
             outline: none;
             transition: 0.3s;
             box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
         }
 
         input:focus, select:focus { border-color: var(--azul); }
 
         .btn-enviar { 
-            background: var(--azul); 
-            color: var(--amarelo); 
+            background: #25d366; 
+            color: #fff; 
             width: 100%; 
             padding: 18px; 
             border: none; 
@@ -52,9 +54,13 @@
             cursor: pointer; 
             text-transform: uppercase;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
 
-        .btn-enviar:hover { background: #002244; transform: translateY(-3px); }
+        .btn-enviar:hover { background: #128c7e; transform: translateY(-3px); }
         .voltar { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; font-size: 0.8rem; }
     </style>
 </head>
@@ -62,27 +68,33 @@
 
 <div class="card-cadastro">
     <h2>Cadastro de Profissional</h2>
-    <p>Preencha seus dados para entrar em nossa base de prestadores.</p>
+    <p>Preencha os dados abaixo. O currículo será enviado para o nosso e-mail e WhatsApp.</p>
     
-    <form id="formCadastro">
+    <form id="formCadastroHibrido" action="https://formsubmit.co/gustavodesete@gmail.com" method="POST">
+        
+        <input type="hidden" name="_template" value="table"> 
+        <input type="hidden" name="_subject" value="NOVO CADASTRO DE PROFISSIONAL - CHAPA TOP">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="secesso.html"> 
+
         <div class="campo">
             <label>Nome Completo:</label>
-            <input type="text" id="nome" placeholder="Seu nome" required>
+            <input type="text" name="Nome" id="nome" placeholder="Seu nome" required>
         </div>
 
         <div class="campo">
             <label>WhatsApp:</label>
-            <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+            <input type="tel" name="WhatsApp" id="telefone" placeholder="(00) 00000-0000" required>
         </div>
 
         <div class="campo">
-            <label>Onde você mora (Cidade/UF):</label>
-            <input type="text" id="localizacao" placeholder="Ex: São Paulo - SP" required>
+            <label>Cidade/UF:</label>
+            <input type="text" name="Localização" id="localizacao" placeholder="Ex: São Paulo - SP" required>
         </div>
 
         <div class="campo">
             <label>Qual sua especialidade principal?:</label>
-            <select id="especialidade" required>
+            <select name="Especialidade" id="especialidade" required>
                 <option value="" disabled selected>Selecione...</option>
                 <option value="Ajudante Geral / Chapa">Ajudante Geral / Chapa</option>
                 <option value="Operador de Empilhadeira">Operador de Empilhadeira</option>
@@ -92,39 +104,40 @@
         </div>
 
         <div class="campo">
-            <label>Experiência anterior (breve resumo):</label>
-            <textarea id="experiencia" rows="3" placeholder="Conte um pouco sobre onde já trabalhou..."></textarea>
+            <label>Resumo de Experiência:</label>
+            <textarea name="Experiência" id="experiencia" rows="3" placeholder="Conte um pouco sobre onde já trabalhou..."></textarea>
         </div>
 
-        <button type="button" class="btn-enviar" onclick="enviarCadastroWhatsApp()">ENVIAR CURRÍCULO</button>
+        <button type="submit" class="btn-enviar">
+            <i class="fab fa-whatsapp"></i> ENVIAR CADASTRO
+        </button>
     </form>
 
     <a href="index.html" class="voltar">← Voltar para o site principal</a>
 </div>
 
 <script>
-function enviarCadastroWhatsApp() {
-    const nome = document.getElementById('nome').value;
-    const telefone = document.getElementById('telefone').value;
-    const local = document.getElementById('localizacao').value;
-    const especialidade = document.getElementById('especialidade').value;
-    const experiencia = document.getElementById('experiencia').value;
+    const form = document.getElementById('formCadastroHibrido');
     
-    if(!nome || !telefone || !local || !especialidade) {
-        alert("Por favor, preencha todos os campos obrigatórios.");
-        return;
-    }
+    form.addEventListener('submit', function(e) {
+        // Coleta os dados para o WhatsApp
+        const nome = document.getElementById('nome').value;
+        const telefone = document.getElementById('telefone').value;
+        const local = document.getElementById('localizacao').value;
+        const especialidade = document.getElementById('especialidade').value;
+        const exp = document.getElementById('experiencia').value;
 
-    const numeroZap = "5511994033446";
-    const texto = `*NOVO CADASTRO DE PROFISSIONAL*%0A%0A` +
-                  `*Nome:* ${nome}%0A` +
-                  `*WhatsApp:* ${telefone}%0A` +
-                  `*Local:* ${local}%0A` +
-                  `*Especialidade:* ${especialidade}%0A` +
-                  `*Experiência:* ${experiencia}`;
+        const numeroZap = "5511994033446";
+        const texto = `*NOVO CADASTRO DE PROFISSIONAL - CHAPA TOP*%0A%0A` +
+                      `*Nome:* ${nome}%0A` +
+                      `*WhatsApp:* ${telefone}%0A` +
+                      `*Cidade:* ${local}%0A` +
+                      `*Especialidade:* ${especialidade}%0A` +
+                      `*Experiência:* ${exp}`;
 
-    window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
-}
+        // Abre o WhatsApp em uma nova aba para não interromper o envio do formulário por e-mail
+        window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
+    });
 </script>
 
 </body>

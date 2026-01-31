@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro Enviado - Chapa Top</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --azul: #003366; --amarelo: #FFD700; --branco: #ffffff; }
+        body { font-family: 'Roboto', sans-serif; background: #f4f4f4; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; text-align: center; }
+        
+        .container-sucesso { 
+            background: var(--branco); 
+            padding: 50px; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            max-width: 500px; 
+            border-top: 10px solid var(--amarelo);
+        }
+
+        i { color: #25d366; font-size: 4rem; margin-bottom: 20px; }
+        h2 { font-family: 'Oswald', sans-serif; color: var(--azul); text-transform: uppercase; margin-bottom: 15px; }
+        p { color: #555; margin-bottom: 30px; line-height: 1.6; }
+
+        .btn-voltar { 
+            background: var(--azul); 
+            color: var(--amarelo); 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            font-weight: bold; 
+            border-radius: 8px; 
+            text-transform: uppercase;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-voltar:hover { background: #002244; transform: scale(1.05); }
+    </style>
+</head>
+<body>
+
+<div class="container-sucesso">
+    <i class="fas fa-check-circle"></i>
+    <h2>Tudo certo!</h2>
+    <p>Seus dados foram enviados com sucesso para nossa equipe de recrutamento. <br> Fique atento ao seu WhatsApp, entraremos em contato em breve.</p>
+    
+    <a href="index.html" class="btn-voltar">Voltar para o Início</a>
+</div>
+
+</body>
+</html>

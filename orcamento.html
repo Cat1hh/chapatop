@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Ajudante - Chapa Top</title>
+    <title>Solicitar Orçamento - Chapa Top</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --azul: #003366; --amarelo: #FFD700; --cinza: #f4f4f4; }
         body { font-family: 'Roboto', sans-serif; background: var(--cinza); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
         
-        .card-cadastro { 
+        .card-orcamento { 
             background: #fff; 
             padding: 40px; 
             border-radius: 20px; 
             box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
-            max-width: 500px; 
+            max-width: 550px; 
             width: 100%; 
             border-top: 10px solid var(--amarelo);
             text-align: center;
@@ -24,24 +24,26 @@
         h2 { font-family: 'Oswald', sans-serif; color: var(--azul); text-transform: uppercase; margin-bottom: 10px; }
         p { color: #666; margin-bottom: 25px; }
         
-        .campo { text-align: left; margin-bottom: 20px; }
-        label { display: block; font-weight: bold; color: var(--azul); margin-bottom: 8px; font-size: 0.9rem; }
+        .campo { text-align: left; margin-bottom: 15px; }
+        label { display: block; font-weight: bold; color: var(--azul); margin-bottom: 5px; font-size: 0.9rem; }
         
-        input, select { 
+        input, select, textarea { 
             width: 100%; 
-            padding: 14px; 
+            padding: 12px; 
             border: 2px solid #ddd; 
-            border-radius: 10px; 
+            border-radius: 8px; 
             font-size: 1rem; 
             outline: none;
             transition: 0.3s;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
         }
 
         input:focus, select:focus { border-color: var(--azul); }
 
         .btn-enviar { 
-            background: #25d366; /* Cor do WhatsApp para o cadastro */
-            color: #fff; 
+            background: var(--azul); 
+            color: var(--amarelo); 
             width: 100%; 
             padding: 18px; 
             border: none; 
@@ -56,47 +58,73 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
+            margin-top: 10px;
         }
 
-        .btn-enviar:hover { background: #128c7e; transform: translateY(-3px); }
+        .btn-enviar:hover { background: #002244; transform: translateY(-3px); }
         .voltar { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
-<div class="card-cadastro">
-    <h2>Cadastro de Ajudante</h2>
-    <p>Complete seus dados para trabalhar conosco.</p>
+<div class="card-orcamento">
+    <h2>Solicitar Orçamento</h2>
+    <p>Receba uma proposta profissional em seu e-mail e WhatsApp.</p>
     
-    <form id="formCadastroAjudante">
+    <form id="formOrcamentoHibrido" action="https://formsubmit.co/gustavodesete@gmail.com" method="POST">
+        
+        <input type="hidden" name="_template" value="table"> 
+        <input type="hidden" name="_subject" value="NOVA SOLICITAÇÃO DE ORÇAMENTO - CHAPA TOP">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="https://chapatop.com.br/sucesso.html"> 
+
         <div class="campo">
-            <label>Nome Completo:</label>
-            <input type="text" id="cad_nome" placeholder="Seu nome" required>
+            <label>Nome ou Empresa:</label>
+            <input type="text" name="Cliente" id="orc_nome" placeholder="Seu nome" required>
         </div>
 
         <div class="campo">
-            <label>WhatsApp / Telefone:</label>
-            <input type="tel" id="cad_whatsapp" placeholder="(00) 00000-0000" required>
-        </div>
-
-        <div class="campo">
-            <label>Sua Especialidade:</label>
-            <select id="cad_especialidade" required>
-                <option value="" disabled selected>Selecione...</option>
-                <option value="Ajudante Geral (Chapa)">Ajudante Geral (Chapa)</option>
-                <option value="Conferente / Logística">Conferente / Logística</option>
-                <option value="Motorista Particular / Carga">Motorista Particular / Carga</option>
-                <option value="Montador de Móveis">Montador de Móveis</option>
+            <label>Tipo de Serviço:</label>
+            <select name="Serviço" id="orc_servico" required>
+                <option value="" disabled selected>Selecione o que precisa...</option>
+                <option value="Carga">Carga</option>
+                <option value="Descarga">Descarga</option>
+                <option value="Transbordo">Transbordo</option>
+                <option value="Diária em Empresa">Diária em Empresa / Transportadora</option>
+                <option value="Acompanhamento">Acompanhamento de Motoristas</option>
+                <option value="Centro de Distribuição">Centro de Distribuição</option>
+                <option value="Viagem">Viagem</option>
             </select>
         </div>
 
         <div class="campo">
-            <label>Cidade onde mora:</label>
-            <input type="text" id="cad_cidade" placeholder="Ex: São Paulo - SP" required>
+            <label>Local (Cidade/UF):</label>
+            <input type="text" name="Local" id="orc_local" placeholder="Ex: São Paulo - SP" required>
         </div>
 
-        <button type="button" class="btn-enviar" onclick="enviarCadastroWhatsApp()">
-            <i class="fab fa-whatsapp"></i> ENVIAR PELO WHATSAPP
+        <div style="display: flex; gap: 10px;">
+            <div class="campo" style="flex: 1;">
+                <label>Dia de Início:</label>
+                <input type="date" name="Dia de Inicio" id="orc_dia" required>
+            </div>
+            <div class="campo" style="flex: 1;">
+                <label>Horário de Início:</label>
+                <input type="time" name="Hora de Inicio" id="orc_hora" required>
+            </div>
+        </div>
+
+        <div class="campo">
+            <label>WhatsApp para Contato:</label>
+            <input type="tel" name="Contato" id="orc_zap" placeholder="(00) 00000-0000" required>
+        </div>
+
+        <div class="campo">
+            <label>Detalhes (Qtd de ajudantes, tipo de carga, etc):</label>
+            <textarea name="Observações" id="orc_obs" rows="3" placeholder="Descreva sua necessidade..."></textarea>
+        </div>
+
+        <button type="submit" class="btn-enviar">
+            <i class="fas fa-envelope"></i> ENVIAR ORÇAMENTO
         </button>
     </form>
 
@@ -104,31 +132,28 @@
 </div>
 
 <script>
-function enviarCadastroWhatsApp() {
-    // Captura os valores dos campos do cadastro
-    const nome = document.getElementById('cad_nome').value;
-    const whatsapp = document.getElementById('cad_whatsapp').value;
-    const especialidade = document.getElementById('cad_especialidade').value;
-    const cidade = document.getElementById('cad_cidade').value;
+    const form = document.getElementById('formOrcamentoHibrido');
     
-    // Validação simples
-    if(!nome || !whatsapp || !especialidade || !cidade) {
-        alert("Por favor, preencha todos os campos do seu cadastro.");
-        return;
-    }
+    form.addEventListener('submit', function(e) {
+        const nome = document.getElementById('orc_nome').value;
+        const servico = document.getElementById('orc_servico').value;
+        const local = document.getElementById('orc_local').value;
+        const dia = document.getElementById('orc_dia').value;
+        const hora = document.getElementById('orc_hora').value;
+        const contato = document.getElementById('orc_zap').value;
+        const obs = document.getElementById('orc_obs').value;
 
-    // Configurações do WhatsApp
-    const numeroZap = "5511994033446"; // Seu número
-    const texto = `*NOVO CADASTRO DE AJUDANTE - CHAPA TOP*%0A%0A` +
-                  `*Nome:* ${nome}%0A` +
-                  `*WhatsApp:* ${whatsapp}%0A` +
-                  `*Especialidade:* ${especialidade}%0A` +
-                  `*Cidade:* ${cidade}%0A%0A` +
-                  `Olá! Gostaria de me candidatar para as vagas de ajudante.`;
+        const numeroZap = "5511994033446";
+        const texto = `*SOLICITAÇÃO DE ORÇAMENTO - CHAPA TOP*%0A%0A` +
+                      `*Cliente:* ${nome}%0A` +
+                      `*Serviço:* ${servico}%0A` +
+                      `*Local:* ${local}%0A` +
+                      `*Início:* ${dia} às ${hora}%0A` +
+                      `*Contato:* ${contato}%0A` +
+                      `*Obs:* ${obs}`;
 
-    // Abre o WhatsApp em uma nova aba
-    window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
-}
+        window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
+    });
 </script>
 
 </body>
