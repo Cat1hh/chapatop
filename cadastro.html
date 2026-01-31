@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Profissional - Chapa Top</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root { --azul: #003366; --amarelo: #FFD700; --cinza: #f4f4f4; }
+        body { font-family: 'Roboto', sans-serif; background: var(--cinza); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; }
+        
+        .card-cadastro { 
+            background: #fff; 
+            padding: 40px; 
+            border-radius: 20px; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); 
+            max-width: 550px; 
+            width: 100%; 
+            border-top: 10px solid var(--amarelo);
+            text-align: center;
+        }
+
+        h2 { font-family: 'Oswald', sans-serif; color: var(--azul); text-transform: uppercase; margin-bottom: 10px; }
+        p { color: #666; margin-bottom: 30px; font-size: 0.9rem; }
+        
+        .campo { text-align: left; margin-bottom: 20px; }
+        label { display: block; font-weight: bold; color: var(--azul); margin-bottom: 8px; font-size: 0.9rem; }
+        
+        input, select, textarea { 
+            width: 100%; 
+            padding: 14px; 
+            border: 2px solid #ddd; 
+            border-radius: 10px; 
+            font-size: 1rem; 
+            outline: none;
+            transition: 0.3s;
+            box-sizing: border-box;
+        }
+
+        input:focus, select:focus { border-color: var(--azul); }
+
+        .btn-enviar { 
+            background: var(--azul); 
+            color: var(--amarelo); 
+            width: 100%; 
+            padding: 18px; 
+            border: none; 
+            border-radius: 10px; 
+            font-family: 'Oswald', sans-serif; 
+            font-size: 1.2rem; 
+            font-weight: bold; 
+            cursor: pointer; 
+            text-transform: uppercase;
+            transition: 0.3s;
+        }
+
+        .btn-enviar:hover { background: #002244; transform: translateY(-3px); }
+        .voltar { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+
+<div class="card-cadastro">
+    <h2>Cadastro de Profissional</h2>
+    <p>Preencha seus dados para entrar em nossa base de prestadores.</p>
+    
+    <form id="formCadastro">
+        <div class="campo">
+            <label>Nome Completo:</label>
+            <input type="text" id="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="campo">
+            <label>WhatsApp:</label>
+            <input type="tel" id="telefone" placeholder="(00) 00000-0000" required>
+        </div>
+
+        <div class="campo">
+            <label>Onde você mora (Cidade/UF):</label>
+            <input type="text" id="localizacao" placeholder="Ex: São Paulo - SP" required>
+        </div>
+
+        <div class="campo">
+            <label>Qual sua especialidade principal?:</label>
+            <select id="especialidade" required>
+                <option value="" disabled selected>Selecione...</option>
+                <option value="Ajudante Geral / Chapa">Ajudante Geral / Chapa</option>
+                <option value="Operador de Empilhadeira">Operador de Empilhadeira</option>
+                <option value="Montador de Móveis">Montador de Móveis</option>
+                <option value="Motorista de Carga">Motorista de Carga</option>
+            </select>
+        </div>
+
+        <div class="campo">
+            <label>Experiência anterior (breve resumo):</label>
+            <textarea id="experiencia" rows="3" placeholder="Conte um pouco sobre onde já trabalhou..."></textarea>
+        </div>
+
+        <button type="button" class="btn-enviar" onclick="enviarCadastroWhatsApp()">ENVIAR CURRÍCULO</button>
+    </form>
+
+    <a href="index.html" class="voltar">← Voltar para o site principal</a>
+</div>
+
+<script>
+function enviarCadastroWhatsApp() {
+    const nome = document.getElementById('nome').value;
+    const telefone = document.getElementById('telefone').value;
+    const local = document.getElementById('localizacao').value;
+    const especialidade = document.getElementById('especialidade').value;
+    const experiencia = document.getElementById('experiencia').value;
+    
+    if(!nome || !telefone || !local || !especialidade) {
+        alert("Por favor, preencha todos os campos obrigatórios.");
+        return;
+    }
+
+    const numeroZap = "5511994033446";
+    const texto = `*NOVO CADASTRO DE PROFISSIONAL*%0A%0A` +
+                  `*Nome:* ${nome}%0A` +
+                  `*WhatsApp:* ${telefone}%0A` +
+                  `*Local:* ${local}%0A` +
+                  `*Especialidade:* ${especialidade}%0A` +
+                  `*Experiência:* ${experiencia}`;
+
+    window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
+}
+</script>
+
+</body>
+</html>
