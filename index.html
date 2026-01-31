@@ -139,9 +139,76 @@
         .header-actions { gap: 5px; }
         .btn-top-cta, .btn-top-consultor { padding: 8px 10px; font-size: 0.65rem; }
     }
-</style>
+    .atuacao-mapa {
+        padding: 60px 0;
+        background: #fff;
+        text-align: center;
+    }
+    .map-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 30px;
+        justify-content: center;
+        margin-top: 40px;
+    }
+    .map-box {
+        flex: 1;
+        min-width: 300px;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        border: 2px solid var(--azul);
+    }
+    .region-list {
+        flex: 0.8;
+        min-width: 300px;
+        text-align: left;
+        background: var(--azul);
+        color: #fff;
+        padding: 30px;
+        border-radius: 15px;
+    }
+    .region-list h4 {
+        color: var(--amarelo);
+        font-family: 'Oswald', sans-serif;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+    .region-list ul {
+        list-style: none;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+    .region-list li {
+        font-size: 0.9rem;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .region-list li i { color: var(--amarelo); }
+    /* Efeito na Logo ao passar o mouse */
+.logo-img {
+    transition: filter 0.3s ease, transform 0.3s ease;
+}
 
+.logo-img:hover {
+    /* Cria um brilho amarelo ao redor da logo */
+    filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FFD700);
+    transform: scale(1.05); /* Aumenta levemente para dar profundidade */
+}
+
+    .logo-img-destaque:hover {
+        filter: drop-shadow(0 0 15px #FFD700) !important;
+        transform: scale(1.05);
+    }
+
+</style>
 </head>
+
+
+
 <body>
 
 <div id="loader-wrapper">
@@ -179,74 +246,219 @@
         </div>
     </section>
 
-    <section class="about" id="sobre" style="padding: 100px 0; background: #fff;">
-        <div class="container">
-            <div style="display: flex; align-items: flex-start; gap: 50px; flex-wrap: wrap;">
-                
-                <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
-                    <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">CONHEÇA A CHAPA TOP SERVIÇOS</h3>
-                    <p style="margin-bottom: 15px; font-size: 1.1rem;">A <strong>Chapa Top Serviços</strong> é especializada no fornecimento de mão de obra qualificada para carga, descarga e organização de mercadorias.</p>
-                    <p style="margin-bottom: 25px;">Nosso objetivo é fortalecer sua logística, garantindo rapidez nas operações e redução de tempo parado, sempre com foco na segurança e eficiência.</p>
-
-                    <div style="margin-top: 40px;">
-                        <video controls style="width: 60%; display: block;">
-                            <source src="img/chapatop.mp4" type="video/mp4">
-                            Seu navegador não suporta vídeos.
-                        </video>
-                    </div>
-                </div>
-
-                <div style="flex: 1; min-width: 320px; background: #f4f4f4; padding: 35px; border-radius: 20px; border-top: 6px solid #FFD700;" data-aos="fade-left">
-                    <h4 style="font-family: 'Oswald', sans-serif; color: #003366; font-size: 1.5rem; margin-bottom: 20px;">NOSSAS ESPECIALIDADES</h4>
-                    <ul style="list-style: none; padding: 0;">
-                        <li style="margin-bottom: 15px;"><strong>✓ Carga e Descarga:</strong> Containers, trens, carretas e sacarias.</li>
-                        <li style="margin-bottom: 15px;"><strong>✓ Logística Interna:</strong> Organização de estoques em CDs e galpões.</li>
-                        <li style="margin-bottom: 15px;"><strong>✓ Inventários:</strong> Auxílio em conferências de carga.</li>
-                        <li style="margin-bottom: 15px;"><strong>✓ Diárias e Períodos:</strong> Atendemos demandas pontuais ou contínuas.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="steps">
-        <div class="container">
-            <h3 data-aos="fade-down">COMO FUNCIONA?</h3>
-            <div class="grid-steps">
-                <div class="step-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="number">1</div>
-                    <h4>SOLICITE</h4>
-                    <p>Fale conosco via WhatsApp e informe sua necessidade.</p>
-                </div>
-                <div class="step-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="number">2</div>
-                    <h4>AGENDAMENTO</h4>
-                    <p>Nossa equipe organiza os melhores ajudantes para o horário.</p>
-                </div>
-                <div class="step-card" data-aos="zoom-in" data-aos-delay="500">
-                    <div class="number">3</div>
-                    <h4>EXECUÇÃO</h4>
-                    <p>Serviço feito com agilidade e profissionalismo.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="historia" style="padding: 100px 0; background: #fff;">
-        <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+<section class="about" id="sobre" style="padding: 100px 0; background: #fff;">
+    <div class="container">
+        <div style="display: flex; align-items: flex-start; gap: 50px; flex-wrap: wrap;">
+            
             <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
-                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">NOSSA TRAJETÓRIA</h3>
-                <p style="margin-bottom: 15px; font-size: 1.1rem; color: #555;">A <strong>Chapa Top Serviços</strong> nasceu entre 2018 e 2019, focada em atender a carência de profissionais comprometidos no mercado logístico.</p>
-            </div>
-            <div style="flex: 1; min-width: 320px;" data-aos="fade-left">
-                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                    <video controls style="width: 100%; display: block;">
-                        <source src="img/Comercial ChapaTop - Agilidade Máxima.mp4" type="video/mp4">
+                <h4 style="color: #FFD700; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Soluções Logísticas</h4>
+                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.8rem; color: #003366; margin-bottom: 20px; line-height: 1.1;">CONHEÇA A CHAPA TOP SERVIÇOS</h3>
+                
+                <p style="margin-bottom: 20px; font-size: 1.15rem; color: #333; line-height: 1.7;">
+                    A <strong>Chapa Top Serviços</strong> é a ponte inteligente entre a sua carga e os melhores profissionais do mercado. Especializada em fornecer mão de obra qualificada, eliminamos a burocracia para galpões, transportadoras e indústrias.
+                </p>
+                
+                <p style="margin-bottom: 30px; font-size: 1.1rem; color: #555;">
+                    Nosso foco é fortalecer sua operação regional, garantindo agilidade máxima na carga e descarga e reduzindo drasticamente o tempo de caminhão parado.
+                </p>
+
+                <div style="margin-top: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,0,0,0.15);">
+                    <video controls style="width: 100%; display: block; background: #000;">
+                        <source src="img/chapatop.mp4" type="video/mp4">
+                        Seu navegador não suporta vídeos.
                     </video>
                 </div>
             </div>
+
+            <div style="flex: 1; min-width: 320px; background: #f8f9fa; padding: 40px; border-radius: 25px; border-top: 8px solid #FFD700; box-shadow: 0 10px 30px rgba(0,0,0,0.05);" data-aos="fade-left">
+                <h4 style="font-family: 'Oswald', sans-serif; color: #003366; font-size: 1.8rem; margin-bottom: 25px; text-transform: uppercase;">Nossas Especialidades</h4>
+                
+                <ul style="list-style: none; padding: 0;">
+                    <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: #FFD700; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span><strong>Carga e Descarga:</strong> Containers, carretas e transbordos ágeis.</span>
+                    </li>
+                    <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: #FFD700; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span><strong>Conferência e Inventário:</strong> Profissionais treinados para conferência de notas e mercadorias.</span>
+                    </li>
+                    <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: #FFD700; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span><strong>Montagem e Layout:</strong> Organização interna de galpões e montagem de móveis.</span>
+                    </li>
+                    <li style="margin-bottom: 18px; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: #FFD700; font-weight: bold; font-size: 1.2rem;">✓</span>
+                        <span><strong>Diárias Flexíveis:</strong> Atendimento por diária para transportadoras e CDs em geral.</span>
+                    </li>
+                </ul>
+
+                <hr style="margin: 30px 0; border: 0; border-top: 1px solid #ddd;">
+                
+                <div style="text-align: center;">
+                    <p style="font-size: 1rem; color: #003366; font-weight: bold; margin-bottom: 15px;">
+                        TEMOS SERVIÇO NA SUA REGIÃO!
+                    </p>
+                    <a href="cadastro.html" style="color: #003366; text-decoration: underline; font-weight: bold; font-size: 0.9rem;">Seja um prestador convocado →</a>
+                </div>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+<section class="atuacao-mapa" style="padding: 80px 0; background: #fff;">
+    <div class="container">
+        <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; text-align: center; text-transform: uppercase;">Estamos nessas Regiões</h3>
+        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">Estamos nestas regiões pronto para dar um serviço de qualidade.</p>
+
+        <div class="map-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
+            <div class="map-box" style="flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #003366;">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15000000!2d-51.92528!3d-14.235004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
+                </iframe>
+            </div>
+
+<div class="region-list" style="flex: 0.8; min-width: 300px; background: #003366; color: #fff; padding: 40px; border-radius: 15px;" data-aos="fade-left">
+    <h4 style="color: #FFD700; font-family: 'Oswald', sans-serif; margin-bottom: 25px; text-transform: uppercase; font-size: 1.5rem;">
+        <i class="fas fa-bullhorn"></i> CHAPA TOP NA SUA REGIÃO
+    </h4>
+    <p style="margin-bottom: 20px; font-size: 1rem; opacity: 0.9;">Clique no estado para ver as cidades com serviços ativos:</p>
+    
+    <div class="accordion-regioes">
+        
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('sp')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> SÃO PAULO</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="sp" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Capital, Região Metropolitana, Sorocaba, Piracicaba, Campinas e Litoral Paulista.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('pr')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> PARANÁ</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="pr" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Curitiba, Região Metropolitana, São José dos Pinhais e Londrina.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('sc')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> SANTA CATARINA</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="sc" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Joinville, Itajaí, Florianópolis e regiões portuárias.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('rs')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> RIO GRANDE DO SUL</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="rs" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Porto Alegre, Região Metropolitana, Canoas e Caxias do Sul.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('mg')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> MINAS GERAIS</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="mg" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Belo Horizonte, Contagem, Betim e Região Metropolitana.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('ba')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> BAHIA</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="ba" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Salvador, Simões Filho, Camaçari e Região Metropolitana.
+            </div>
+        </div>
+
+        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+            <button onclick="toggleRegiao('es')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> ESPÍRITO SANTO</span>
+                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+            </button>
+            <div id="es" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                Vitória, Serra, Vila Velha e Cariacica.
+            </div>
+        </div>
+
+    </div>
+
+    <div style="margin-top: 35px; border-top: 2px solid rgba(255,215,0,0.3); padding-top: 20px; text-align: center;">
+        <p style="font-weight: bold; color: #FFD700; font-size: 1.2rem; text-transform: uppercase;">
+            TEMOS SERVIÇO NA SUA REGIÃO!
+        </p>
+    </div>
+</div>
+        </div>
+    </div>
+</section>
+
+<section class="steps" style="padding: 80px 0; background: #f4f4f4;">
+    <div class="container">
+        <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; text-align: center; margin-bottom: 50px;" data-aos="fade-down">COMO FUNCIONA?</h3>
+        <div class="grid-steps" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+            <div class="step-card" data-aos="zoom-in" data-aos-delay="100" style="background: #fff; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                <div class="number" style="background: #003366; color: #FFD700; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;">1</div>
+                <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin-bottom: 15px;">SOLICITE</h4>
+                <p>O cliente entra em contato informando o serviço e a capital onde a carga se encontra.</p>
+            </div>
+            <div class="step-card" data-aos="zoom-in" data-aos-delay="300" style="background: #fff; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                <div class="number" style="background: #003366; color: #FFD700; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;">2</div>
+                <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin-bottom: 15px;">CONVOCAÇÃO</h4>
+                <p>Nossa equipe convoca os chapas e ajudantes cadastrados na região metropolitana solicitada.</p>
+            </div>
+            <div class="step-card" data-aos="zoom-in" data-aos-delay="500" style="background: #fff; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
+                <div class="number" style="background: #003366; color: #FFD700; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;">3</div>
+                <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin-bottom: 15px;">EXECUÇÃO</h4>
+                <p>Serviço realizado com rapidez para que o caminhão não fique parado na capital.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="historia" style="padding: 100px 0; background: #fff;">
+    <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+        
+        <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
+            <h4 style="color: #FFD700; font-weight: bold; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Desde 2018</h4>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.8rem; color: #003366; margin-bottom: 25px; line-height: 1.1;">CONSTRUINDO CONEXÕES LOGÍSTICAS</h3>
+            
+            <p style="margin-bottom: 20px; font-size: 1.15rem; color: #333; line-height: 1.8;">
+                A <strong>Chapa Top Serviços</strong> nasceu da necessidade de profissionalizar o apoio logístico no Brasil. Mais do que fornecer mão de obra, nós criamos uma rede de confiança que conecta empresas a profissionais comprometidos.
+            </p>
+
+            <div style="background: #f8f9fa; border-left: 5px solid #FFD700; padding: 20px; margin-bottom: 25px;">
+                <p style="font-size: 1.1rem; color: #003366; font-weight: bold; margin: 0;">
+                    "Temos serviço na sua região! Estamos convocando os melhores ajudantes e chapas para transformar a logística local."
+                </p>
+            </div>
+
+            <p style="font-size: 1.05rem; color: #555; line-height: 1.7;">
+                Hoje, somos referência em agilidade e segurança, garantindo que galpões, transportadoras e centros de distribuição operem com máxima eficiência e zero dor de cabeça.
+            </p>
+        </div>
+
+        <div style="flex: 0.8; min-width: 300px; text-align: center;" data-aos="fade-left">
+            <img src="logo.png" alt="Logo Chapa Top" class="logo-img-destaque" style="max-width: 100%; height: auto; filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1)); transition: 0.3s;">
+        </div>
+
+    </div>
+</section>
 
     <section class="testimonials-section">
         <div class="container">
@@ -286,35 +498,57 @@
         </div>
     </section>
 
-    <section class="call-to-action-chapa-top" style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/fundo-logistica.jpg'); background-size: cover; background-position: center; color: #fff; padding: 80px 0; overflow: hidden; position: relative;">
-        <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
-            <div style="flex: 1; min-width: 300px; position: relative; z-index: 2;" data-aos="fade-right">
-                <h4 style="color: #FFD700; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px;">Oportunidade</h4>
-                <h3 style="font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 20px; line-height: 1.2;">QUER SER UM CHAPA TOP?</h3>
-                <a href="#cadastro" class="btn-whatsapp" style="background: #25D366; color: #fff; padding: 15px 30px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px;">
-                    <i class="fab fa-whatsapp"></i> CADASTRE-SE AGORA
-                </a>
-            </div>
-            <div style="flex: 1; min-width: 300px; text-align: right;" data-aos="fade-left">
-                <img src="img/ULTIMO DIA PARA A CHAMDA PUBLICA.png" alt="Trabalhe Conosco" style="max-width: 230%; height: auto; transform: translateY(90px);">
+<section class="call-to-action-chapa-top" style="background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('img/fundo-logistica.jpg'); background-size: cover; background-position: center; color: #fff; padding: 80px 0; overflow: hidden; position: relative;">
+    
+    <div class="container" style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 40px;">
+        
+        <div style="flex: 1; min-width: 300px; position: relative; z-index: 2;" data-aos="fade-right">
+            <h4 style="color: #FFD700; font-size: 1.1rem; text-transform: uppercase; margin-bottom: 10px; letter-spacing: 1px;">Convocação Regional</h4>
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: clamp(2.2rem, 4vw, 3rem); margin-bottom: 20px; line-height: 1.2;">TEMOS SERVIÇO NA SUA REGIÃO!</h3>
+            <p style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 30px; opacity: 0.9;">
+                Estamos convocando ajudantes e chapas qualificados. Entre em contato com a <strong>Chapa Top</strong> agora mesmo e garanta sua oportunidade.
+            </p>
+            
+            <a href="cadastro.html" class="btn-whatsapp" style="background: #2536d3; color: #fff; padding: 18px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; display: inline-flex; align-items: center; gap: 10px; transition: 0.3s; font-size: 1.1rem; box-shadow: 0 10px 20px rgba(37, 211, 102, 0.3);">
+                <i class="fab fa-whatsapp"></i> QUERO ME CADASTRAR
+            </a>
+        </div>
+
+        <div style="flex: 1; min-width: 300px; text-align: right; position: relative;" data-aos="fade-left">
+            <img src="img/ULTIMO DIA PARA A CHAMDA PUBLICA.png" alt="Convocação Chapa Top" style="max-width: 200%; height: auto; transform: translateY(60px); filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));">
+        </div>
+
+    </div>
+    
+    <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(255, 215, 0, 0.05); border-radius: 50%;"></div>
+</section>
+<section id="historia" style="padding: 100px 0; background: #fff;">
+    <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
+        <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
+            <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">ATENÇÃO AJUDANTES E CHAPAS</h3>
+            
+            <p style="margin-bottom: 15px; font-size: 1.2rem; color: #333; font-weight: bold;">
+                Estamos convocando ajudantes e chapas de diversas regiões para entrar em contato com a Chapa Top!
+            </p>
+
+            <p style="margin-bottom: 15px; font-size: 1.1rem; color: #555;">
+                <strong>Temos serviço na sua região!</strong> Se você busca oportunidades de trabalho autônomo com agilidade e seriedade, preencha o cadastro abaixo ou entre em contato.
+            </p>
+            
+            <p style="font-size: 1rem; color: #666; font-style: italic;">
+                "Não apenas contratamos, nós conectamos você às melhores oportunidades logísticas da sua cidade."
+            </p>
+        </div>
+        <div style="flex: 1; min-width: 320px;" data-aos="fade-left">
+            <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+                <video controls style="width: 100%; display: block;">
+                    <source src="img/Roteiro_de_Vídeo_ChapaTop_Agilidade_Máxima.mp4" type="video/mp4">
+                    Seu navegador não suporta vídeos.
+                </video>
             </div>
         </div>
-    </section>
-    <section id="historia" style="padding: 100px 0; background: #fff;">
-        <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
-            <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
-                <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">Precisa de nos</h3>
-                <p style="margin-bottom: 15px; font-size: 1.1rem; color: #555;">Entre em contato com a <strong>Chapa Top Serviços</strong> por telefone ou via email</p>
-            </div>
-            <div style="flex: 1; min-width: 320px;" data-aos="fade-left">
-                <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                    <video controls style="width: 100%; display: block;">
-                        <source src="img/Roteiro_de_Vídeo_ChapaTop_Agilidade_Máxima.mp4" type="video/mp4">
-                    </video>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
+</section>
 <section id="compromisso" style="padding: 80px 0; background: #003366; color: #fff; text-align: center;">
         <div class="container" data-aos="fade-up">
             <span style="font-size: 2.5rem;">🤝</span>
@@ -404,6 +638,23 @@
             
         }, 1000); 
     });
+</script>
+<script>
+function toggleRegiao(id) {
+    var x = document.getElementById(id);
+    var allAccordions = document.querySelectorAll('.accordion-regioes > div > div');
+    
+    // Fecha todos os outros antes de abrir o novo (opcional, deixa mais limpo)
+    allAccordions.forEach(function(acc) {
+        if (acc.id !== id) acc.style.display = "none";
+    });
+
+    if (x.style.display === "none" || x.style.display === "") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
 </script>
 </body>
 </html>

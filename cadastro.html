@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Profissional - Chapa Top</title>
+    <title>Convocação de Profissional - Chapa Top</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
@@ -42,8 +42,8 @@
         input:focus, select:focus { border-color: var(--azul); }
 
         .btn-enviar { 
-            background: #25d366; 
-            color: #fff; 
+            background: var(--azul); 
+            color: var(--amarelo); 
             width: 100%; 
             padding: 18px; 
             border: none; 
@@ -60,26 +60,32 @@
             gap: 10px;
         }
 
-        .btn-enviar:hover { background: #128c7e; transform: translateY(-3px); }
+        .btn-enviar:hover { background: #002244; transform: translateY(-3px); }
         .voltar { display: inline-block; margin-top: 20px; color: #888; text-decoration: none; font-size: 0.8rem; }
     </style>
 </head>
 <body>
 
 <div class="card-cadastro">
-    <h2>Cadastro de Profissional</h2>
-    <p>Preencha os dados abaixo. O currículo será enviado para o nosso e-mail e WhatsApp.</p>
+    <h2>Convocação de Chapa</h2>
+    <p style="font-weight: bold; color: var(--azul);">TEMOS SERVIÇO NA SUA REGIÃO!</p>
+    <p>Preencha os dados abaixo. Eles serão enviados para nosso e-mail e WhatsApp.</p>
     
     <form id="formCadastroHibrido" action="https://formsubmit.co/chapatop.servicos@gmail.com" method="POST">
         
-        <input type="hidden" name="_template" value="table"> 
-        <input type="hidden" name="_subject" value="NOVO CADASTRO DE PROFISSIONAL - CHAPA TOP">
+        <input type="hidden" name="_template" value="table"> <input type="hidden" name="_subject" value="NOVA CONVOCAÇÃO REGIONAL - CHAPA TOP">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="secesso.html"> 
+        
+        <input type="hidden" name="_next" value="sucesso.html"> 
 
         <div class="campo">
             <label>Nome Completo:</label>
             <input type="text" name="Nome" id="nome" placeholder="Seu nome" required>
+        </div>
+
+        <div class="campo">
+            <label>RG:</label>
+            <input type="text" name="RG" id="rg" placeholder="00.000.000-0" required>
         </div>
 
         <div class="campo">
@@ -89,27 +95,28 @@
 
         <div class="campo">
             <label>Cidade/UF:</label>
-            <input type="text" name="Localização" id="localizacao" placeholder="Ex: São Paulo - SP" required>
+            <input type="text" name="Localização" id="localizacao" placeholder="Ex: Curitiba - PR" required>
         </div>
 
         <div class="campo">
-            <label>Qual sua especialidade principal?:</label>
+            <label>Especialidade Principal:</label>
             <select name="Especialidade" id="especialidade" required>
                 <option value="" disabled selected>Selecione...</option>
                 <option value="Ajudante Geral / Chapa">Ajudante Geral / Chapa</option>
                 <option value="Operador de Empilhadeira">Operador de Empilhadeira</option>
-                <option value="Montador de Móveis">Montador de Móveis</option>
+                <option value="Auxiliar de Limpeza">Auxiliar de Limpeza</option>
+                <option value="Serviços Gerais">Serviços Gerais</option>
                 <option value="Motorista de Carga">Motorista de Carga</option>
             </select>
         </div>
 
         <div class="campo">
             <label>Resumo de Experiência:</label>
-            <textarea name="Experiência" id="experiencia" rows="3" placeholder="Conte um pouco sobre onde já trabalhou..."></textarea>
+            <textarea name="Experiência" id="experiencia" rows="3" placeholder="Conte sua experiência..."></textarea>
         </div>
 
         <button type="submit" class="btn-enviar">
-            <i class="fab fa-whatsapp"></i> ENVIAR CADASTRO
+            ENVIAR CADASTRO
         </button>
     </form>
 
@@ -120,23 +127,45 @@
     const form = document.getElementById('formCadastroHibrido');
     
     form.addEventListener('submit', function(e) {
-        // Coleta os dados para o WhatsApp
+        // 1. Bloqueia o redirecionamento automático para controlarmos via JS
+        e.preventDefault();
+
+        // 2. Coleta os dados para o WhatsApp
         const nome = document.getElementById('nome').value;
+        const rg = document.getElementById('rg').value;
         const telefone = document.getElementById('telefone').value;
         const local = document.getElementById('localizacao').value;
         const especialidade = document.getElementById('especialidade').value;
         const exp = document.getElementById('experiencia').value;
 
         const numeroZap = "5511994033446";
-        const texto = `*NOVO CADASTRO DE PROFISSIONAL - CHAPA TOP*%0A%0A` +
+        const texto = `*NOVA CONVOCAÇÃO - CHAPA TOP*%0A%0A` +
                       `*Nome:* ${nome}%0A` +
+                      `*RG:* ${rg}%0A` +
                       `*WhatsApp:* ${telefone}%0A` +
                       `*Cidade:* ${local}%0A` +
                       `*Especialidade:* ${especialidade}%0A` +
-                      `*Experiência:* ${exp}`;
+                      `*Experiência:* ${exp}%0A%0A` +
+                      `Tenho interesse nos serviços da minha região!`;
 
-        // Abre o WhatsApp em uma nova aba para não interromper o envio do formulário por e-mail
-        window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
+        // 3. Envia os dados para o FormSubmit (e-mail) em segundo plano
+        // Isso evita o erro de "Form should POST" e garante o envio silencioso
+        const formData = new FormData(form);
+        
+        fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors' // Essencial para evitar bloqueios do navegador
+        }).then(() => {
+            // 4. Abre o WhatsApp em nova aba APÓS o disparo do e-mail
+            window.open(`https://wa.me/${numeroZap}?text=${texto}`, '_blank');
+            
+            // 5. Redireciona IMEDIATAMENTE a página atual para o sucesso.html
+            window.location.href = "sucesso.html";
+        }).catch(() => {
+            // Se houver qualquer falha na rede, redireciona do mesmo jeito para não travar o usuário
+            window.location.href = "sucesso.html";
+        });
     });
 </script>
 
