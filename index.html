@@ -188,26 +188,49 @@
         gap: 8px;
     }
     .region-list li i { color: var(--amarelo); }
+    
     /* Efeito na Logo ao passar o mouse */
-.logo-img {
-    transition: filter 0.3s ease, transform 0.3s ease;
-}
+    .logo-img {
+        transition: filter 0.3s ease, transform 0.3s ease;
+    }
 
-.logo-img:hover {
-    /* Cria um brilho amarelo ao redor da logo */
-    filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FFD700);
-    transform: scale(1.05); /* Aumenta levemente para dar profundidade */
-}
+    .logo-img:hover {
+        filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FFD700);
+        transform: scale(1.05);
+    }
 
     .logo-img-destaque:hover {
         filter: drop-shadow(0 0 15px #FFD700) !important;
         transform: scale(1.05);
     }
 
+    /* Estilo do Botão Saiba Mais */
+    .btn-saiba-mais {
+        background-color: #003366; /* Azul */
+        color: #fff;
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: bold;
+        text-transform: uppercase;
+        display: inline-block;
+        margin-top: 25px;
+        border: 2px solid #003366;
+        transition: 0.3s;
+        font-family: 'Oswald', sans-serif;
+        font-size: 1rem;
+    }
+
+    .btn-saiba-mais:hover {
+        background-color: #FFD700; /* Amarelo */
+        color: #003366; /* Texto Azul */
+        border-color: #FFD700;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
 </style>
 </head>
-
-
 
 <body>
 
@@ -305,112 +328,112 @@
         </div>
     </div>
 </section>
+
 <section class="atuacao-mapa" style="padding: 80px 0; background: #fff;">
     <div class="container">
-        <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; text-align: center; text-transform: uppercase;">Estamos nessas Regiões</h3>
-        <p style="text-align: center; font-size: 1.1rem; margin-bottom: 40px;">Estamos nestas regiões pronto para dar um serviço de qualidade.</p>
+        <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.2rem; color: #003366; text-align: center; text-transform: uppercase; font-weight: bold; margin-bottom: 40px;">
+            ATENDEMOS SÃO PAULO, REGIÃO METROPOLITANA E TAMBÉM NAS SEGUINTES REGIÕES:
+        </h3>
 
         <div class="map-grid" style="display: flex; flex-wrap: wrap; gap: 30px; justify-content: center;">
             <div class="map-box" style="flex: 1; min-width: 300px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border: 2px solid #003366;">
                 <iframe 
                     src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d15000000!2d-51.92528!3d-14.235004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1spt-BR!2sbr!4v1620000000000!5m2!1spt-BR!2sbr" 
-                    width="100%" height="650" style="border:0;" allowfullscreen="" loading="lazy">
+                    width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy">
                 </iframe>
             </div>
 
-<div class="region-list" style="flex: 0.8; min-width: 300px; background: #003366; color: #fff; padding: 40px; border-radius: 15px;" data-aos="fade-left">
-    <h4 style="color: #FFD700; font-family: 'Oswald', sans-serif; margin-bottom: 25px; text-transform: uppercase; font-size: 1.5rem;">
-        <i class="fas fa-bullhorn"></i> CHAPA TOP NA SUA REGIÃO
-    </h4>
-    <p style="margin-bottom: 20px; font-size: 1rem; opacity: 0.9;">Clique no estado para ver as cidades com serviços ativos:</p>
-    
-    <div class="accordion-regioes">
-        
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('sp')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> SÃO PAULO</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="sp" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos São Paulo e também nas seguintes regiões:</p>
-                Capital, Região Metropolitana, Sorocaba, Piracicaba, Campinas e Litoral Paulista.
+            <div class="region-list" style="flex: 0.8; min-width: 300px; background: #003366; color: #fff; padding: 40px; border-radius: 15px;" data-aos="fade-left">
+                <h4 style="color: #FFD700; font-family: 'Oswald', sans-serif; margin-bottom: 25px; text-transform: uppercase; font-size: 1.5rem;">
+                    <i class="fas fa-bullhorn"></i> CHAPA TOP NA SUA REGIÃO
+                </h4>
+                <p style="margin-bottom: 20px; font-size: 1rem; opacity: 0.9;">Clique no estado para ver as cidades com serviços ativos:</p>
+                
+                <div class="accordion-regioes">
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('sp')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> SÃO PAULO</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="sp" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos São Paulo e também nas seguintes regiões:</p>
+                            Capital, Região Metropolitana, Sorocaba, Piracicaba, Campinas e Litoral Paulista.
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('pr')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> PARANÁ</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="pr" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos o Paraná e também nas seguintes regiões:</p>
+                            Curitiba, Região Metropolitana, São José dos Pinhais e Londrina.
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('sc')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> SANTA CATARINA</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="sc" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos Santa Catarina e também nas seguintes regiões:</p>
+                            Joinville, Itajaí, Florianópolis e regiões portuárias.
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('rs')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> RIO GRANDE DO SUL</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="rs" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos o Rio Grande do Sul e também nas seguintes regiões:</p>
+                            Porto Alegre, Região Metropolitana, Canoas e Caxias do Sul.
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('mg')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> MINAS GERAIS</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="mg" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos Minas Gerais e também nas seguintes regiões:</p>
+                            Belo Horizonte, Contagem, Betim e Região Metropolitana.
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('ba')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> BAHIA</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="ba" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos a Bahia e também nas seguintes regiões:</p>
+                            Salvador, Simões Filho, Camaçari e Região Metropolitana.
+                        </div>
+                    </div>
+
+                    <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
+                        <button onclick="toggleRegiao('es')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
+                            <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> ESPÍRITO SANTO</span>
+                            <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
+                        </button>
+                        <div id="es" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
+                            <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos o Espírito Santo e também nas seguintes regiões:</p>
+                            Vitória, Serra, Vila Velha e Cariacica.
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-top: 35px; border-top: 2px solid rgba(255,215,0,0.3); padding-top: 20px; text-align: center;">
+                    <p style="font-weight: bold; color: #FFD700; font-size: 1.2rem; text-transform: uppercase;">
+                        TEMOS SERVIÇO NA SUA REGIÃO!
+                    </p>
+                </div>
             </div>
-        </div>
-
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('pr')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> PARANÁ</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="pr" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos o Paraná e também nas seguintes regiões:</p>
-                Curitiba, Região Metropolitana, São José dos Pinhais e Londrina.
-            </div>
-        </div>
-
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('sc')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> SANTA CATARINA</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="sc" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos Santa Catarina e também nas seguintes regiões:</p>
-                Joinville, Itajaí, Florianópolis e regiões portuárias.
-            </div>
-        </div>
-
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('rs')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> RIO GRANDE DO SUL</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="rs" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos o Rio Grande do Sul e também nas seguintes regiões:</p>
-                Porto Alegre, Região Metropolitana, Canoas e Caxias do Sul.
-            </div>
-        </div>
-
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('mg')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> MINAS GERAIS</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="mg" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos Minas Gerais e também nas seguintes regiões:</p>
-                Belo Horizonte, Contagem, Betim e Região Metropolitana.
-            </div>
-        </div>
-
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('ba')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> BAHIA</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="ba" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos a Bahia e também nas seguintes regiões:</p>
-                Salvador, Simões Filho, Camaçari e Região Metropolitana.
-            </div>
-        </div>
-
-        <div style="margin-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-            <button onclick="toggleRegiao('es')" style="width: 100%; background: none; border: none; color: #fff; text-align: left; padding: 12px 0; font-size: 1.1rem; cursor: pointer; display: flex; justify-content: space-between; align-items: center; font-family: 'Oswald';">
-                <span><i class="fas fa-map-marker-alt" style="color: #FFD700;"></i> ESPÍRITO SANTO</span>
-                <i class="fas fa-chevron-down" style="font-size: 0.8rem;"></i>
-            </button>
-            <div id="es" style="display: none; padding: 10px 25px; font-size: 0.9rem; color: #FFD700; line-height: 1.6; background: rgba(0,0,0,0.1); border-radius: 10px;">
-                <p style="margin-bottom: 8px; color: #fff; font-weight: bold;">Atendemos o Espírito Santo e também nas seguintes regiões:</p>
-                Vitória, Serra, Vila Velha e Cariacica.
-            </div>
-        </div>
-
-    </div>
-
-    <div style="margin-top: 35px; border-top: 2px solid rgba(255,215,0,0.3); padding-top: 20px; text-align: center;">
-        <p style="font-weight: bold; color: #FFD700; font-size: 1.2rem; text-transform: uppercase;">
-            TEMOS SERVIÇO NA SUA REGIÃO!
-        </p>
-    </div>
-</div>
         </div>
     </div>
 </section>
@@ -422,12 +445,12 @@
             <div class="step-card" data-aos="zoom-in" data-aos-delay="100" style="background: #fff; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
                 <div class="number" style="background: #003366; color: #FFD700; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;">1</div>
                 <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin-bottom: 15px;">SOLICITE</h4>
-                <p>o cliente entra em contato informando o serviço e a localização onde será realizada a operação logística de carga e descarga, li também a diária</p>
+                <p>O cliente entra em contato informando o serviço, a localização da operação de carga e descarga e a diária.</p>
             </div>
             <div class="step-card" data-aos="zoom-in" data-aos-delay="300" style="background: #fff; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
                 <div class="number" style="background: #003366; color: #FFD700; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;">2</div>
                 <h4 style="font-family: 'Oswald', sans-serif; color: #003366; margin-bottom: 15px;">CONVOCAÇÃO</h4>
-                <p>Nossa equipe convoca os chapas e ajudantes cadastrados na região metropolitana solicitada.</p>
+                <p>O nosso suporte Master convoca a equipe de chapas e ajudantes para atuar na operação logística</p>
             </div>
             <div class="step-card" data-aos="zoom-in" data-aos-delay="500" style="background: #fff; padding: 40px; border-radius: 20px; text-align: center; box-shadow: 0 10px 20px rgba(0,0,0,0.05);">
                 <div class="number" style="background: #003366; color: #FFD700; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-weight: bold; font-size: 1.2rem;">3</div>
@@ -458,6 +481,8 @@
             <p style="font-size: 1.05rem; color: #555; line-height: 1.7;">
                 A Chapa Top oferece ajudantes profissionais para carga e descarga de caminhões, carretas e contêineres, além de diárias em empresas e centros de distribuição. Atuamos com agilidade, segurança e atendimento 24h para transportadoras e caminhoneiros.
             </p>
+
+            <a href="sobre.html" class="btn-saiba-mais">CONHEÇA MAIS SOBRE A CHAPA TOP</a>
         </div>
 
         <div style="flex: 0.8; min-width: 300px; text-align: center;" data-aos="fade-left">
@@ -528,33 +553,6 @@
     </div>
     
     <div style="position: absolute; top: -50px; left: -50px; width: 150px; height: 150px; background: rgba(255, 215, 0, 0.05); border-radius: 50%;"></div>
-</section>
-<section id="historia" style="padding: 100px 0; background: #fff;">
-    <div class="container" style="display: flex; align-items: center; gap: 60px; flex-wrap: wrap;">
-        <div style="flex: 1.2; min-width: 350px;" data-aos="fade-right">
-            <h3 style="font-family: 'Oswald', sans-serif; font-size: 2.5rem; color: #003366; margin-bottom: 20px;">ATENÇÃO AJUDANTES E CHAPAS</h3>
-            
-            <p style="margin-bottom: 15px; font-size: 1.2rem; color: #333; font-weight: bold;">
-                Estamos convocando ajudantes e chapas de diversas regiões para entrar em contato com a Chapa Top!
-            </p>
-
-            <p style="margin-bottom: 15px; font-size: 1.1rem; color: #555;">
-                <strong>Temos serviço na sua região!</strong> Se você busca oportunidades de trabalho autônomo com agilidade e seriedade, preencha o cadastro abaixo ou entre em contato.
-            </p>
-            
-            <p style="font-size: 1rem; color: #666; font-style: italic;">
-                "Não apenas contratamos, nós conectamos você às melhores oportunidades logísticas da sua cidade."
-            </p>
-        </div>
-        <div style="flex: 1; min-width: 320px;" data-aos="fade-left">
-            <div style="border-radius: 20px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
-                <video controls style="width: 100%; display: block;">
-                    <source src="img/Roteiro_de_Vídeo_ChapaTop_Agilidade_Máxima.mp4" type="video/mp4">
-                    Seu navegador não suporta vídeos.
-                </video>
-            </div>
-        </div>
-    </div>
 </section>
 <section id="compromisso" style="padding: 80px 0; background: #003366; color: #fff; text-align: center;">
         <div class="container" data-aos="fade-up">

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre Nós - Chapa Top Serviços</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <style>
+        :root { --azul: #003366; --amarelo: #FFD700; --cinza: #f4f4f4; }
+        
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            background: #fff; 
+            margin: 0; 
+            padding: 0; 
+            overflow-x: hidden;
+            color: #333;
+        }
+
+        /* --- HEADER IGUAL AO DO SITE --- */
+        header { background: #fff; padding: 15px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-box { display: flex; justify-content: space-between; align-items: center; }
+        .logo-img { height: 60px; transition: 0.3s; }
+        
+        /* Efeito na Logo */
+        .logo-img:hover {
+            filter: drop-shadow(0 0 10px #FFD700) drop-shadow(0 0 20px #FFD700);
+            transform: scale(1.05);
+        }
+
+        .header-actions { display: flex; gap: 10px; }
+        .btn-top-cta { background: var(--amarelo); color: var(--azul); padding: 10px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        .btn-top-consultor { border: 2px solid var(--amarelo); color: var(--azul); padding: 8px 20px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 0.8rem; text-transform: uppercase; transition: 0.3s; }
+        .btn-top-cta:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(255, 215, 0, 0.3); }
+        .btn-top-consultor:hover { background: var(--amarelo); }
+
+        /* --- HERO SECTION DO SOBRE --- */
+        .page-header {
+            background: linear-gradient(rgba(0,51,102,0.9), rgba(0,51,102,0.8)), url('img/fundo-logistica.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 80px 0;
+            text-align: center;
+            color: #fff;
+        }
+        .page-header h1 { font-family: 'Oswald', sans-serif; font-size: 3rem; margin-bottom: 10px; color: var(--amarelo); }
+        .page-header p { font-size: 1.2rem; max-width: 800px; margin: 0 auto; opacity: 0.9; }
+
+        /* --- CONTEÚDO PRINCIPAL --- */
+        .content-section { padding: 60px 0; }
+        .section-title { font-family: 'Oswald', sans-serif; color: var(--azul); font-size: 2rem; margin-bottom: 20px; border-left: 5px solid var(--amarelo); padding-left: 15px; }
+        p { line-height: 1.8; margin-bottom: 20px; font-size: 1.05rem; }
+        
+        .destaque-box { background: var(--cinza); padding: 30px; border-radius: 15px; margin: 30px 0; border-left: 5px solid var(--azul); }
+        
+        ul.check-list { list-style: none; padding: 0; }
+        ul.check-list li { margin-bottom: 15px; display: flex; align-items: center; gap: 10px; font-size: 1.1rem; }
+        ul.check-list li i { color: var(--amarelo); background: var(--azul); width: 25px; height: 25px; display: flex; align-items: center; justify-content: center; border-radius: 50%; font-size: 0.8rem; }
+
+        /* --- CTA FINAL --- */
+        .cta-box { background: var(--azul); color: #fff; padding: 50px; text-align: center; border-radius: 20px; margin-top: 40px; }
+        .cta-box h3 { font-family: 'Oswald', sans-serif; color: var(--amarelo); font-size: 2rem; margin-bottom: 20px; }
+        .btn-whatsapp-large { background: #25d366; color: #fff; padding: 15px 30px; border-radius: 50px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-flex; align-items: center; gap: 10px; margin-top: 20px; transition: 0.3s; }
+        .btn-whatsapp-large:hover { transform: scale(1.05); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+        /* --- FOOTER --- */
+        footer { background: var(--azul); color: #fff; padding: 40px 0 20px; border-top: 4px solid var(--amarelo); margin-top: 60px; }
+        footer h4 { color: var(--amarelo); font-family: 'Oswald', sans-serif; margin-bottom: 20px; }
+        footer a { color: #fff; text-decoration: none; opacity: 0.8; }
+        footer a:hover { opacity: 1; color: var(--amarelo); }
+
+        @media (max-width: 768px) {
+            .nav-box { flex-direction: column; gap: 15px; }
+            .header-actions { flex-wrap: wrap; justify-content: center; }
+            .page-header h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-box">
+            <a href="index.html">
+                <img src="logo.png" alt="Chapa Top" class="logo-img">
+            </a>
+            <div class="header-actions">
+                <a href="orcamento.html" class="btn-top-cta">SOLICITAR COTAÇÃO</a>
+                <a href="https://wa.me/11994033446" class="btn-top-cta">FALAR COM CONSULTOR</a>
+                <a href="index.html" class="btn-top-cta">VOLTAR AO INÍCIO</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>SUA PARCEIRA EM CARGA E DESCARGA</h1>
+            <p>Força, organização e eficiência para sua logística em todo o Brasil.</p>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <div class="container">
+            
+            <p>A <strong>Chapa Top Serviços</strong> nasceu para atender empresas, transportadoras, centros de distribuição e caminhoneiros que buscam agilidade, segurança, organização e eficiência nas operações de carga, descarga e movimentação de mercadorias.</p>
+            
+            <p>Sabemos que, no setor logístico, <strong>tempo é dinheiro</strong>. Caminhão parado gera prejuízo, atraso na entrega, insatisfação do cliente e aumento de custos. Pensando nisso, a Chapa Top oferece uma solução completa, com ajudantes e chapas qualificados, prontos para atender sua demanda com rapidez e profissionalismo.</p>
+
+            <div class="destaque-box">
+                <h3 class="section-title" style="font-size: 1.5rem; margin-top: 0;">O QUE OFERECEMOS</h3>
+                <p>Contamos com uma equipe treinada, uniformizada e preparada para atuar em diferentes tipos de operações:</p>
+                <ul class="check-list">
+                    <li><i class="fas fa-check"></i> Carga e descarga de caminhões, carretas e contêineres</li>
+                    <li><i class="fas fa-check"></i> Movimentação de mercadorias</li>
+                    <li><i class="fas fa-check"></i> Organização de estoques</li>
+                    <li><i class="fas fa-check"></i> Apoio logístico em centros de distribuição</li>
+                    <li><i class="fas fa-check"></i> Serviços por diária ou sob demanda</li>
+                </ul>
+                <p style="margin-top: 15px; font-weight: bold; color: var(--azul);">Tudo isso com foco em qualidade, pontualidade e responsabilidade.</p>
+            </div>
+
+            <h3 class="section-title">COMPROMISSO COM PROFISSIONALISMO E SEGURANÇA</h3>
+            <p>Nossos ajudantes passam por processos de capacitação e utilizam equipamentos adequados, garantindo mais segurança para sua operação, para sua equipe e para sua empresa.</p>
+            <p>Trabalhamos com organização, respeito às normas e compromisso com resultados. Aqui, o cliente não contrata apenas mão de obra — contrata tranquilidade e confiança.</p>
+
+            <h3 class="section-title">ATENDIMENTO EM DIVERSAS REGIÕES</h3>
+            <p>A Chapa Top está em constante expansão, com profissionais cadastrados em várias regiões do país, oferecendo suporte para empresas que operam em diferentes estados e cidades. Seja na capital, na região metropolitana, no interior ou em polos logísticos, estamos prontos para atender você.</p>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 40px; margin-top: 40px;">
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 class="section-title">MAIS PRODUTIVIDADE, MENOS CUSTO</h3>
+                    <p>Ao contratar a Chapa Top, sua empresa ganha:</p>
+                    <ul class="check-list">
+                        <li><i class="fas fa-arrow-up"></i> Redução de tempo de operação</li>
+                        <li><i class="fas fa-arrow-up"></i> Menos caminhões parados</li>
+                        <li><i class="fas fa-arrow-up"></i> Mais agilidade nas entregas</li>
+                        <li><i class="fas fa-arrow-up"></i> Melhor organização do estoque</li>
+                        <li><i class="fas fa-arrow-up"></i> Aumento da produtividade</li>
+                        <li><i class="fas fa-arrow-down" style="background: #28a745;"></i> Diminuição de custos operacionais</li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 300px;">
+                    <h3 class="section-title">PARCERIA QUE GERA RESULTADOS</h3>
+                    <p>Mais do que um prestador de serviço, a Chapa Top quer ser sua parceira logística.</p>
+                    <p>Atendemos desde pequenas empresas até grandes transportadoras, sempre com o mesmo compromisso: entregar um serviço sério, eficiente e confiável.</p>
+                    <p style="font-size: 1.2rem; font-weight: bold; color: var(--azul); margin-top: 20px;">Milhares de clientes já confiam na Chapa Top. Faça parte você também.</p>
+                </div>
+            </div>
+
+            <div class="cta-box" id="contato">
+                <h3>SOLICITE AGORA SEU ORÇAMENTO</h3>
+                <p>Se você busca uma empresa comprometida, ágil e preparada para atender suas necessidades logísticas, fale agora com a Chapa Top Serviços.</p>
+                
+                <div style="margin: 30px 0;">
+                    <a href="https://wa.me/5511994403346" class="btn-whatsapp-large" target="_blank">
+                        <i class="fab fa-whatsapp"></i> (11) 99440-3346
+                    </a>
+                </div>
+                
+                <p style="font-size: 0.9rem;">📧 E-mail: <a href="mailto:chapatop.servicos@gmail.com" style="color: #FFD700;">chapatop.servicos@gmail.com</a></p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div style="display: flex; flex-wrap: wrap; justify-content: space-between; gap: 40px;">
+                <div style="flex: 1; min-width: 250px;">
+                    <img src="logo.png" alt="Chapa Top" style="height: 60px; margin-bottom: 20px;">
+                    <p style="font-size: 0.9rem; opacity: 0.8;">Força, organização e eficiência para sua logística.</p>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h4>LINKS RÁPIDOS</h4>
+                    <ul style="list-style: none; padding: 0; line-height: 2; font-size: 0.9rem;">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="orcamento.html">Solicitar Cotação</a></li>
+                        <li><a href="cadastro.html">Trabalhe Conosco</a></li>
+                    </ul>
+                </div>
+                <div style="flex: 1; min-width: 250px;">
+                    <h4>LEGAL</h4>
+                    <a href="termos-uso.html" style="font-size: 0.9rem;">Termos de Uso</a><br>
+                    <a href="img/1. Sobre a Empresa.pdf" style="font-size: 0.9rem;">Política de Privacidade</a>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid rgba(255,255,255,0.1); margin: 20px 0;">
+            <div style="text-align: center; font-size: 0.8rem; opacity: 0.6;">© 2026 Chapa Top Serviços - Todos os direitos reservados.</div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/5511994403346?text=Ol%C3%A1%2C%20vi%20o%20site%20e%20gostaria%20de%20mais%20informa%C3%A7%C3%B5es." 
+       style="position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px; background-color: #25d366; color: #FFF; border-radius: 50px; text-align: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.3); z-index: 1000; display: flex; align-items: center; justify-content: center; text-decoration: none;" 
+       target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
